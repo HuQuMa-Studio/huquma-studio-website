@@ -154,14 +154,10 @@ export default function PortfolioSection() {
                     className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] tracking-widest uppercase font-mono-custom"
                     style={{
                       background: `${statusColors[project.status]}DD`,
-                      border: `1px solid ${statusColors[project.status]}FF`,
-                      color: statusColors[project.status],
+                      border: `1px solid #FFFFFF`,
+                      color: `#FFFFFF`,
                     }}
                   >
-                    <span
-                      className="w-1.5 h-1.5 rounded-full"
-                      style={{ background: statusColors[project.status] }}
-                    />
                     {statusLabels[project.status]}
                   </span>
                 </div>
@@ -192,7 +188,7 @@ export default function PortfolioSection() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[9px] px-2 py-0.5 border border-white/15 text-[#6A6A6A] tracking-wider uppercase"
+                          className="text-[9px] px-2 py-0.5 border border-[rgb(160,160,160)] text-[rgb(160,160,160)] tracking-wider uppercase"
                         >
                           {tag}
                         </span>
