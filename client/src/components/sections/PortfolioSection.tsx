@@ -1,9 +1,10 @@
 /* =============================================================
    PortfolioSection — HuQuMa Studio
-   Design: Grid de proyectos con tabs Current / Past / Planned
+   Design: Grid de proyectos con tabs In Progress / Completed / Upcoming
    - Tabs de filtro con animación
    - Cards de proyectos con imagen, overlay y detalles
    - Hover effect con información expandida
+   - Status badges consistentes con opciones de filtro
    ============================================================= */
 
 import { useState } from "react";
@@ -67,9 +68,9 @@ const projects: Project[] = [
 
 const tabs: { label: string; value: ProjectStatus | "all" }[] = [
   { label: "All Projects", value: "all" },
-  { label: "Current", value: "current" },
-  { label: "Past", value: "past" },
-  { label: "Planned", value: "planned" },
+  { label: "In Progress", value: "current" },
+  { label: "Completed", value: "past" },
+  { label: "Upcoming", value: "planned" },
 ];
 
 const statusColors: Record<ProjectStatus, string> = {
@@ -134,8 +135,7 @@ export default function PortfolioSection() {
           {filtered.map((project, i) => (
             <div
               key={project.id}
-              className="project-card reveal"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className="project-card"
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
