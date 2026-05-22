@@ -43,18 +43,6 @@ const contactItems = [
     href: "https://maps.google.com/?q=Loreto,Baja+California+Sur,Mexico",
     external: true,
   },
-  {
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-      </svg>
-    ),
-    label: "Website",
-    value: "loreto.com",
-    href: "https://loreto.com",
-    external: true,
-  },
 ];
 
 const socialLinks = [
@@ -167,13 +155,23 @@ export default function ContactSection() {
 
             {/* Address */}
             <div className="mt-8 p-5 border border-white/5 bg-[#1A1A1A]/50">
-              <div className="section-number mb-2">Mailing Address</div>
-              <address className="not-italic text-[#6A6A6A] text-sm leading-relaxed">
-                Hugo Quintero Maldonado<br />
-                Calle Centro SN, Col. Centro<br />
-                CP 23880, Loreto<br />
-                Baja California Sur, México
-              </address>
+              <div className="section-number mb-2">Address</div>
+              <a
+                href="https://maps.app.goo.gl/S7WH5v3PYp88xq6j7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 group"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#B8963E] mt-0.5 flex-shrink-0">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <address className="not-italic text-[#6A6A6A] text-sm leading-relaxed group-hover:text-[#D4AF5A] transition-colors">
+                  Calle Ayuntamiento SN<br />
+                  Col. Centro, C.P. 23880<br />
+                  Loreto, Baja California Sur, México
+                </address>
+              </a>
             </div>
           </div>
         </div>

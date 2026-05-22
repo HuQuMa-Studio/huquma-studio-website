@@ -89,24 +89,12 @@ export default function HeroSection() {
           </a>
           <a
             href="mailto:hugo@huquma.studio"
-            className="btn-ghost"
+            className="btn-gold"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
             Email Me
-          </a>
-          <a
-            href="https://loreto.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-ghost"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-            </svg>
-            Loreto.com
           </a>
         </div>
       </div>
