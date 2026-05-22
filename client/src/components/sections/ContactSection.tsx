@@ -40,7 +40,7 @@ const contactItems = [
     ),
     label: "Location",
     value: "Loreto, Baja California Sur, México",
-    href: "https://maps.google.com/?q=Loreto,Baja+California+Sur,Mexico",
+    href: "https://loreto.com/",
     external: true,
   },
 ];
