@@ -153,15 +153,11 @@ export default function PortfolioSection() {
                   <span
                     className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] tracking-widest uppercase font-mono-custom"
                     style={{
-                      background: `${statusColors[project.status]}22`,
-                      border: `1px solid ${statusColors[project.status]}44`,
-                      color: statusColors[project.status],
+                      background: `${statusColors[project.status]}DD`,
+                      border: `1px solid #FFFFFF`,
+                      color: `#FFFFFF`,
                     }}
                   >
-                    <span
-                      className="w-1.5 h-1.5 rounded-full"
-                      style={{ background: statusColors[project.status] }}
-                    />
                     {statusLabels[project.status]}
                   </span>
                 </div>
