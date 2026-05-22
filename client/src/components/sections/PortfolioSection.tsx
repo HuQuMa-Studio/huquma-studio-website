@@ -7,7 +7,7 @@
    - Status badges consistentes con opciones de filtro
    ============================================================= */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CASA_CATALANA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_catalana_f0ed1520.jpg";
 const CASA_CABALLO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_caballo_mar_d76237aa.jpg";
@@ -27,7 +27,9 @@ interface Project {
   tags: string[];
 }
 
-const projects: Project[] = [
+// Datos de respaldo: se muestran de inmediato y en desarrollo local
+// (donde /api/projects no está disponible). En producción, Notion los reemplaza.
+const FALLBACK_PROJECTS: Project[] = [
   {
     id: "casa-catalana",
     name: "Casa Catalana",
@@ -88,6 +90,23 @@ const statusLabels: Record<ProjectStatus, string> = {
 export default function PortfolioSection() {
   const [activeTab, setActiveTab] = useState<ProjectStatus | "all">("all");
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [projects, setProjects] = useState<Project[]>(FALLBACK_PROJECTS);
+
+  useEffect(() => {
+    fetch("/api/projects")
+      .then((res) => {
+        if (!res.ok) throw new Error("fetch failed");
+        return res.json();
+      })
+      .then((data: Project[]) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setProjects(data);
+        }
+      })
+      .catch(() => {
+        // Sin conexión a Notion (p. ej. dev local): se mantienen los datos de respaldo
+      });
+  }, []);
 
   const filtered =
     activeTab === "all"
