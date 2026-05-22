@@ -118,9 +118,9 @@ export default function ExperienceSection() {
               src={LORETO_BG}
               alt="Loreto, Baja California Sur"
               className="w-full h-full object-cover"
-              style={{ filter: "brightness(0.25) saturate(0.7)" }}
+              style={{ filter: "brightness(0.45) saturate(0.8)" }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/60 to-[#111111]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#111111]/80 via-[#111111]/35 to-[#111111]/50" />
           </div>
 
           <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/8">
