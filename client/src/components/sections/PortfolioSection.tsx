@@ -135,8 +135,7 @@ export default function PortfolioSection() {
           {filtered.map((project, i) => (
             <div
               key={project.id}
-              className="project-card reveal"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className="project-card"
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
