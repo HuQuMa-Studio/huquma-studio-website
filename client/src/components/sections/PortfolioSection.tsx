@@ -188,7 +188,7 @@ export default function PortfolioSection() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[9px] px-2 py-0.5 border border-white/15 text-[#6A6A6A] tracking-wider uppercase"
+                          className="text-[9px] px-2 py-0.5 border border-[rgb(160,160,160)] text-[rgb(160,160,160)] tracking-wider uppercase"
                         >
                           {tag}
                         </span>
