@@ -87,10 +87,18 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-[#3A3A3A] text-xs font-mono-custom tracking-wide">
-            © 2025 HuQuMa Studio [Design+Build]. All rights reserved.
+            © 2026 HuQuMa Studio [Design+Build]. All rights reserved.
           </p>
           <p className="text-[#3A3A3A] text-xs font-mono-custom tracking-wide">
-            Published in Loreto, Baja California Sur, México
+            Designed & Made in Mexico with ♥ by{" "}
+            <a
+              href="https://www.loreto.com/hq/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#B8963E] hover:underline transition-colors"
+            >
+              HuQuMa
+            </a>
           </p>
         </div>
       </div>
