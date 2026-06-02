@@ -34,18 +34,47 @@ function plainText(rt?: NotionRichText[]): string {
   return rt.map((t) => t.plain_text ?? "").join("");
 }
 
+// Genera un slug URL-safe desde el nombre del proyecto.
+// "Villa Cortés" → "villa-cortes"
+function slugify(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize("NFD") // separa los diacríticos
+    .replace(/\p{Diacritic}/gu, "") // quita los diacríticos combinantes
+    .replace(/[^a-z0-9]+/g, "-") // no-alfanumérico → guion
+    .replace(/^-+|-+$/g, ""); // recorta guiones inicial/final
+}
+
+// Parsea el campo "Galería URLs" de Notion (texto multilínea, un URL por línea).
+// Ignora líneas vacías o sin esquema http(s).
+function parseGallery(text: string): string[] {
+  if (!text) return [];
+  return text
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => /^https?:\/\//.test(line));
+}
+
 function mapPage(page: NotionPage) {
   const p = page.properties;
   const statusName = p["Estatus"]?.select?.name ?? "";
+  const name = plainText(p["Nombre del Proyecto"]?.title);
+  const slugManual = plainText(p["Slug"]?.rich_text);
   return {
     id: page.id,
-    name: plainText(p["Nombre del Proyecto"]?.title),
+    slug: slugManual || slugify(name),
+    name,
     location: plainText(p["Localidad"]?.rich_text),
     type: plainText(p["Tipo"]?.rich_text),
     status: STATUS_MAP[statusName] ?? "current",
     year: plainText(p["Año"]?.rich_text),
     image: p["Foto Hero URL"]?.url ?? "",
     description: plainText(p["Descripción Corta"]?.rich_text),
+    descriptionFull: plainText(p["Descripción Completa"]?.rich_text),
+    bedrooms: p["Bedrooms"]?.number ?? null,
+    bathrooms: p["Bathrooms"]?.number ?? null,
+    squareFeet: p["Square Feet"]?.number ?? null,
+    gallery: parseGallery(plainText(p["Galería URLs"]?.rich_text)),
     tags: (p["Etiquetas"]?.multi_select ?? []).map((t) => t.name),
   };
 }

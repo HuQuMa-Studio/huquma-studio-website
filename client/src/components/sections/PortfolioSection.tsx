@@ -1,37 +1,29 @@
 /* =============================================================
    PortfolioSection — HuQuMa Studio
-   Design: Grid de proyectos con tabs In Progress / Completed / Upcoming
-   - Tabs de filtro con animación
-   - Cards de proyectos con imagen, overlay y detalles
-   - Hover effect con información expandida
-   - Status badges consistentes con opciones de filtro
+   Grid de proyectos con tabs de filtro. Cada card es clickable y
+   navega a /portfolio/:slug (la sub-página ProjectDetail).
+   - Hover muestra descripción expandida + tags
+   - Click en la card abre la sub-página del proyecto
    ============================================================= */
 
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
+import type { Project, ProjectStatus } from "@/types/project";
+import { statusColors, statusLabels } from "@/types/project";
 
-const CASA_CATALANA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_catalana_f0ed1520.jpg";
-const CASA_CABALLO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_caballo_mar_d76237aa.jpg";
-const PORTFOLIO_PLANNED = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/portfolio_planned-jWJhzyuBYpp7Sagu6cMu34.webp";
-
-type ProjectStatus = "current" | "past" | "planned";
-
-interface Project {
-  id: string;
-  name: string;
-  location: string;
-  type: string;
-  status: ProjectStatus;
-  year: string;
-  image: string;
-  description: string;
-  tags: string[];
-}
+const CASA_CATALANA =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_catalana_f0ed1520.jpg";
+const CASA_CABALLO =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_caballo_mar_d76237aa.jpg";
+const PORTFOLIO_PLANNED =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/portfolio_planned-jWJhzyuBYpp7Sagu6cMu34.webp";
 
 // Datos de respaldo: se muestran de inmediato y en desarrollo local
 // (donde /api/projects no está disponible). En producción, Notion los reemplaza.
 const FALLBACK_PROJECTS: Project[] = [
   {
     id: "casa-catalana",
+    slug: "casa-catalana",
     name: "Casa Catalana",
     location: "Loreto, BCS",
     type: "Residential",
@@ -40,10 +32,16 @@ const FALLBACK_PROJECTS: Project[] = [
     image: CASA_CATALANA,
     description:
       "Large-scale residential construction project in the heart of Loreto. Foundation work completed with reinforced concrete structure. Featuring traditional Mexican colonial architecture with modern amenities.",
+    descriptionFull: "",
+    bedrooms: null,
+    bathrooms: null,
+    squareFeet: null,
+    gallery: [],
     tags: ["Residential", "New Construction", "Colonial Style"],
   },
   {
     id: "casa-caballo-mar",
+    slug: "casa-caballo-de-mar",
     name: "Casa Caballo de Mar",
     location: "Loreto, BCS",
     type: "Luxury Residential",
@@ -52,10 +50,16 @@ const FALLBACK_PROJECTS: Project[] = [
     image: CASA_CABALLO,
     description:
       "Landmark luxury residential villa featuring Mediterranean-inspired architecture, ornate stone work, lush tropical gardens, and a central fountain courtyard. A showcase of high-end construction in Loreto.",
+    descriptionFull: "",
+    bedrooms: null,
+    bathrooms: null,
+    squareFeet: null,
+    gallery: [],
     tags: ["Luxury", "Mediterranean", "Completed"],
   },
   {
     id: "villa-cortez",
+    slug: "villa-cortes",
     name: "Villa Cortés",
     location: "Loreto, BCS",
     type: "Residential",
@@ -64,6 +68,11 @@ const FALLBACK_PROJECTS: Project[] = [
     image: PORTFOLIO_PLANNED,
     description:
       "Upcoming luxury coastal villa with infinity pool overlooking the Sea of Cortez. Modern Mexican architecture with sustainable building practices and energy-efficient systems throughout.",
+    descriptionFull: "",
+    bedrooms: null,
+    bathrooms: null,
+    squareFeet: null,
+    gallery: [],
     tags: ["Luxury", "Sustainable", "Coastal"],
   },
 ];
@@ -74,18 +83,6 @@ const tabs: { label: string; value: ProjectStatus | "all" }[] = [
   { label: "Completed", value: "past" },
   { label: "Upcoming", value: "planned" },
 ];
-
-const statusColors: Record<ProjectStatus, string> = {
-  current: "#4CAF50",
-  past: "#B8963E",
-  planned: "#5B9BD5",
-};
-
-const statusLabels: Record<ProjectStatus, string> = {
-  current: "In Progress",
-  past: "Completed",
-  planned: "Upcoming",
-};
 
 export default function PortfolioSection() {
   const [activeTab, setActiveTab] = useState<ProjectStatus | "all">("all");
@@ -104,7 +101,7 @@ export default function PortfolioSection() {
         }
       })
       .catch(() => {
-        // Sin conexión a Notion (p. ej. dev local): se mantienen los datos de respaldo
+        // Sin conexión a Notion (dev local): se mantienen los datos de respaldo
       });
   }, []);
 
@@ -151,10 +148,11 @@ export default function PortfolioSection() {
 
         {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
-          {filtered.map((project, i) => (
-            <div
+          {filtered.map((project) => (
+            <Link
               key={project.id}
-              className="project-card"
+              href={`/portfolio/${project.slug}`}
+              className="project-card block"
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
@@ -216,7 +214,7 @@ export default function PortfolioSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
