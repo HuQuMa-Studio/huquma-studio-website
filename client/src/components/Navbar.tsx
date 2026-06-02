@@ -9,6 +9,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLocation } from "wouter";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/logo_956d778e.png";
 
@@ -24,6 +25,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,12 +52,34 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (href: string) => {
+    document.querySelector(href)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  // En sub-páginas (/portfolio/:slug) primero navegamos al home y luego scrolleamos
+  // a la sección, porque las secciones (#about, #portfolio, etc.) viven en Home.
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location !== "/") {
+      setLocation("/");
+      setTimeout(() => scrollToSection(href), 100);
+      return;
     }
+    scrollToSection(href);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    if (location !== "/") {
+      setLocation("/");
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -71,8 +95,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              href="/"
+              onClick={handleLogoClick}
               className="flex items-center gap-3 group"
             >
               <img

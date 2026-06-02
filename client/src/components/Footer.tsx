@@ -3,6 +3,8 @@
    Design: Footer minimalista con logo, copyright y redes sociales
    ============================================================= */
 
+import { useLocation } from "wouter";
+
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/logo_956d778e.png";
 
 const navLinks = [
@@ -14,9 +16,19 @@ const navLinks = [
 ];
 
 export default function Footer() {
+  const [location, setLocation] = useLocation();
+
+  // En sub-páginas, primero navega al home y luego scrollea (las secciones
+  // viven en Home, no en /portfolio/:slug).
   const handleClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (location !== "/") {
+      setLocation("/");
+      setTimeout(() => {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
