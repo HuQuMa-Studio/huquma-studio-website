@@ -77,7 +77,7 @@ export default function HeroSection() {
         {/* CTA buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
-            href="https://wa.me/526131220058/?text=Hello%20World!"
+            href="https://wa.me/526131220058/?text=Hi%20Hugo%2C%20I%20would%20like%20to%20schedule%20a%20call%20with%20you%2C%20please%20let%20me%20know%20when%20are%20you%20available"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold"

@@ -17,7 +17,7 @@ const contactItems = [
     ),
     label: "WhatsApp",
     value: "+52 613 122 0058",
-    href: "https://wa.me/526131220058/?text=Hello%20World!",
+    href: "https://wa.me/526131220058/?text=Hi%20Hugo%2C%20I%20would%20like%20to%20schedule%20a%20call%20with%20you%2C%20please%20let%20me%20know%20when%20are%20you%20available",
     external: true,
   },
   {
@@ -98,7 +98,7 @@ export default function ContactSection() {
 
             {/* Primary CTA */}
             <a
-              href="https://wa.me/526131220058/?text=Hello%20World!"
+              href="https://wa.me/526131220058/?text=Hi%20Hugo%2C%20I%20would%20like%20to%20schedule%20a%20call%20with%20you%2C%20please%20let%20me%20know%20when%20are%20you%20available"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold inline-flex items-center gap-3 text-sm py-3 px-6 mb-10"
