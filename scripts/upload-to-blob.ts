@@ -115,7 +115,9 @@ async function main() {
   console.log(`✨ ${results.length}/${images.length} subidas exitosas`);
   if (failures > 0) console.log(`⚠️  ${failures} fallaron`);
   if (results.length > 0) {
-    console.log("\nCopia estos URLs al campo 'Foto Hero URL' en Notion:\n");
+    console.log("\nCopia estos URLs en Notion:");
+    console.log("  • Si es la foto principal del proyecto → campo 'Foto Hero URL'");
+    console.log("  • Si es para la galería → campo 'Galería URLs' (uno por línea)\n");
     for (const { filename, url } of results) {
       console.log(`${filename}:`);
       console.log(`  ${url}\n`);
