@@ -1,7 +1,8 @@
-// /sitemap.xml (vía rewrite en vercel.json): la portada más una URL por proyecto
-// publicado en Notion. Usa el host de la petición, así sirve igual en
+// /sitemap.xml (vía rewrite en vercel.json): la portada, una URL por proyecto
+// publicado en Notion y las guías (data/guides.ts). Usa el host de la petición, así sirve igual en
 // *.vercel.app y en huquma.studio.
 
+import { GUIDES } from "../client/src/data/guides.js";
 import { fetchProjects, type VercelRes } from "./_notion.js";
 
 export default async function handler(
@@ -18,7 +19,12 @@ export default async function handler(
     // Sin Notion: al menos la portada
   }
 
-  const urls = ["/", ...slugs.map((s) => `/portfolio/${encodeURIComponent(s)}`)];
+  const urls = [
+    "/",
+    ...slugs.map((s) => `/portfolio/${encodeURIComponent(s)}`),
+    "/guides",
+    ...GUIDES.map((g) => `/guides/${g.slug}`),
+  ];
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',

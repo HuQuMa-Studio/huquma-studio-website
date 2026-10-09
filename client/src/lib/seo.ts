@@ -7,6 +7,7 @@
    ============================================================= */
 
 import { FAQS } from "@/data/faq";
+import type { Guide } from "@/data/guides";
 import { EMAIL, WHATSAPP_NUMBER } from "@/lib/contact";
 import type { Project } from "@/types/project";
 
@@ -163,6 +164,93 @@ export function projectJsonLd(site: string, p: Project) {
           { "@type": "ListItem", position: 1, name: "Home", item: `${site}/` },
           { "@type": "ListItem", position: 2, name: "Portfolio", item: `${site}/#portfolio` },
           { "@type": "ListItem", position: 3, name: p.name, item: url },
+        ],
+      },
+    ],
+  };
+}
+
+// ---------- Guías (/guides) ----------
+
+export const GUIDES_TITLE = "Guides to building a home in Loreto, BCS | HuQuMa Studio";
+export const GUIDES_DESCRIPTION =
+  "Plain answers about building a custom home in Loreto, Baja California Sur: permits, the DRO, owning land near the coast and building while you live abroad.";
+
+export function guideTitle(g: Pick<Guide, "title">): string {
+  return `${g.title} | HuQuMa Studio`;
+}
+
+export function guidesIndexJsonLd(site: string, guides: Guide[]) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${site}/guides#page`,
+        url: `${site}/guides`,
+        name: "Guides to building a home in Loreto, BCS",
+        description: GUIDES_DESCRIPTION,
+        publisher: { "@id": businessId(site) },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: guides.map((g, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            url: `${site}/guides/${g.slug}`,
+            name: g.title,
+          })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${site}/` },
+          { "@type": "ListItem", position: 2, name: "Guides", item: `${site}/guides` },
+        ],
+      },
+    ],
+  };
+}
+
+export function guideJsonLd(site: string, g: Guide) {
+  const url = `${site}/guides/${g.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        headline: g.title,
+        description: g.description,
+        url,
+        mainEntityOfPage: url,
+        inLanguage: "en",
+        datePublished: g.published,
+        dateModified: g.updated,
+        image: `${site}/images/og-cover.jpg`,
+        author: {
+          "@type": "Person",
+          "@id": personId(site),
+          name: "Hugo Quintero Maldonado",
+          jobTitle: "Design-build professional and licensed DRO (Director Responsable de Obra)",
+          url: `${site}/#about`,
+        },
+        publisher: {
+          "@type": "Organization",
+          "@id": businessId(site),
+          name: "HuQuMa Studio",
+          url: `${site}/`,
+          logo: { "@type": "ImageObject", url: `${site}/images/logo-192.png` },
+        },
+        about: { "@type": "Place", name: "Loreto, Baja California Sur, Mexico" },
+        articleSection: g.sections.map((s) => s.heading),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${site}/` },
+          { "@type": "ListItem", position: 2, name: "Guides", item: `${site}/guides` },
+          { "@type": "ListItem", position: 3, name: g.title, item: url },
         ],
       },
     ],

@@ -14,6 +14,7 @@ const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "FAQ", href: "#faq" },
+  { label: "Guides", href: "/guides" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -23,6 +24,12 @@ export default function Footer() {
   // En sub-páginas, primero navega al home y luego scrollea (las secciones
   // viven en Home, no en /portfolio/:slug).
   const handleClick = (href: string) => {
+    // Rutas propias (p. ej. /guides): navegar y subir al inicio
+    if (href.startsWith("/")) {
+      setLocation(href);
+      window.scrollTo(0, 0);
+      return;
+    }
     if (location !== "/") {
       setLocation("/");
       setTimeout(() => {

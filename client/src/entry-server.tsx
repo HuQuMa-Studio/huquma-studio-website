@@ -11,7 +11,13 @@ import { primeProjects } from "@/hooks/useProjects";
 import type { Project } from "@/types/project";
 
 export { FALLBACK_PROJECTS } from "@/data/fallbackProjects";
+export { GUIDES } from "@/data/guides";
 export {
+  GUIDES_DESCRIPTION,
+  GUIDES_TITLE,
+  guideJsonLd,
+  guidesIndexJsonLd,
+  guideTitle,
   HOME_DESCRIPTION,
   HOME_TITLE,
   homeJsonLd,

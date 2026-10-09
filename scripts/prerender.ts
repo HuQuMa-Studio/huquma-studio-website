@@ -73,6 +73,7 @@ type Page = {
   image?: string;
   jsonLd?: unknown;
   noindex?: boolean;
+  ogType?: "website" | "article";
   projects?: Project[];
 };
 
@@ -82,6 +83,7 @@ function page(markup: string, p: Page): string {
   html = setMeta(html, "property", "og:title", p.title);
   html = setMeta(html, "property", "og:description", p.description);
   html = setMeta(html, "property", "og:image", p.image ?? `${SITE}/images/og-cover.jpg`);
+  html = setMeta(html, "property", "og:type", p.ogType ?? "website");
 
   const head: string[] = [];
   if (p.canonical) {
@@ -137,6 +139,34 @@ for (const p of projects) {
 }
 
 await write(
+  "guides/index.html",
+  page(server.render("/guides", projects), {
+    url: "/guides",
+    title: server.GUIDES_TITLE,
+    description: server.GUIDES_DESCRIPTION,
+    canonical: `${SITE}/guides`,
+    jsonLd: server.guidesIndexJsonLd(SITE, server.GUIDES),
+    projects,
+  }),
+);
+
+for (const g of server.GUIDES) {
+  const url = `/guides/${g.slug}`;
+  await write(
+    `guides/${g.slug}/index.html`,
+    page(server.render(url, projects), {
+      url,
+      title: server.guideTitle(g),
+      description: g.description,
+      canonical: `${SITE}${url}`,
+      jsonLd: server.guideJsonLd(SITE, g),
+      ogType: "article",
+      projects,
+    }),
+  );
+}
+
+await write(
   "404.html",
   page(server.render("/404", projects), {
     url: "/404",
@@ -146,4 +176,4 @@ await write(
   }),
 );
 
-console.log(`[prerender] ${projects.length} proyectos · ${SITE}`);
+console.log(`[prerender] ${projects.length} proyectos · ${server.GUIDES.length} guías · ${SITE}`);

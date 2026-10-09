@@ -3,6 +3,7 @@
 // enlaces usan el host de la petición.
 
 import { FAQS } from "../client/src/data/faq.js";
+import { GUIDES } from "../client/src/data/guides.js";
 import { fetchProjects, type VercelRes } from "./_notion.js";
 
 // Igual que la sección Services del sitio (ServicesSection.tsx)
@@ -62,6 +63,10 @@ export default async function handler(
     ...REMOTE_PROCESS.map((s) => `- ${s}`),
     "",
     ...(portfolio.length ? ["## Portfolio", "", ...portfolio, ""] : []),
+    "## Guides",
+    "",
+    ...GUIDES.map((g) => `- [${g.title}](${base}/guides/${g.slug}): ${g.description}`),
+    "",
     "## FAQ",
     "",
     ...FAQS.flatMap((f) => [`### ${f.question}`, "", f.answer, ""]),
