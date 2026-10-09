@@ -23,6 +23,7 @@ import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 import StatusBadge from "@/components/StatusBadge";
 import { GRID_SIZES, imageSrc, imageSrcSet } from "@/lib/image";
 import { photoCaption } from "@/lib/caption";
+import { projectDescription, projectTitle } from "@/lib/seo";
 import { projectMeta } from "@/types/project";
 
 export default function ProjectDetail() {
@@ -41,8 +42,8 @@ export default function ProjectDetail() {
     const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     const prevTitle = document.title;
     const prevDesc = meta?.content ?? "";
-    document.title = `${current.name} — HuQuMa Studio [Design+Build]`;
-    if (meta && current.description) meta.content = current.description;
+    document.title = projectTitle(current);
+    if (meta) meta.content = projectDescription(current);
     return () => {
       document.title = prevTitle;
       if (meta) meta.content = prevDesc;

@@ -4,16 +4,23 @@
 
 import { fetchProjects, type VercelRes } from "./_notion.js";
 
+// Igual que la sección Services del sitio (ServicesSection.tsx)
 const SERVICES = [
-  "Custom Builds — new construction",
-  "Architectural Design — plans, elevations, structural drawings, permit-ready documentation",
-  "Remodeling — renovations and additions",
-  "Project Management — full oversight",
-  "DRO Services — licensed Director Responsable de Obra in Baja California Sur",
-  "Facilities Management — ongoing care of the property after construction",
-  "Pool Installation — pools and water features",
-  "Tiny Houses — compact living",
-  "Sustainable Building — energy-efficient construction",
+  "Architectural & engineering design — plans, elevations, structural and engineering drawings, and the permit set; Hugo takes the permits through the municipality himself",
+  "Construction — new custom homes, remodels and additions, from foundation to finishes",
+  "DRO services — licensed Director Responsable de Obra in Baja California Sur, for Hugo's own projects and for other builders' projects",
+  "Project management — owner's representative on a build run by another contractor (schedule, budget, quality); inspection of a house or lot before you buy it",
+  "Facilities management — inspections, maintenance and repairs, hurricane preparation, utilities and predial (property tax), and the house ready between rental guests",
+];
+
+const BUILDING_TYPES = "Custom homes, remodels & additions, pools, tiny houses, energy-efficient building";
+
+const WAYS_TO_HIRE = "Design + Build, Design only, Build only, Oversight, or Manage — any stage on its own or the whole house";
+
+const REMOTE_PROCESS = [
+  "Progress photos and video on WhatsApp, email reports with spending against the budget, and video calls at key milestones",
+  "A 3D digital twin of the house (Matterport) to walk through remotely",
+  "One accountable person on site in Loreto for plans, permits, budget and the house itself",
 ];
 
 export default async function handler(
@@ -44,6 +51,14 @@ export default async function handler(
     "## Services",
     "",
     ...SERVICES.map((s) => `- ${s}`),
+    "",
+    `Building types: ${BUILDING_TYPES}.`,
+    "",
+    `Ways to hire: ${WAYS_TO_HIRE}.`,
+    "",
+    "## Building from abroad",
+    "",
+    ...REMOTE_PROCESS.map((s) => `- ${s}`),
     "",
     ...(portfolio.length ? ["## Portfolio", "", ...portfolio, ""] : []),
     "## Contact",
