@@ -7,101 +7,17 @@
    - Click en la card abre la sub-página del proyecto
    ============================================================= */
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
-import type { Project } from "@/types/project";
 import StatusBadge from "@/components/StatusBadge";
+import { useProjects } from "@/hooks/useProjects";
 import { GRID_SIZES, imageSrc, imageSrcSet } from "@/lib/image";
 import { projectMeta, projectTypes } from "@/types/project";
-
-const CASA_CATALANA =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_catalana_f0ed1520.jpg";
-const CASA_CABALLO =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_caballo_mar_d76237aa.jpg";
-const PORTFOLIO_PLANNED =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/portfolio_planned-jWJhzyuBYpp7Sagu6cMu34.webp";
-
-// Datos de respaldo: en desarrollo local (donde /api/projects no corre) y si
-// la API falla. En producción no se pintan de entrada, para no descargar sus
-// imágenes antes de que lleguen los datos de Notion.
-const FALLBACK_PROJECTS: Project[] = [
-  {
-    id: "casa-catalana",
-    slug: "casa-catalana",
-    name: "Casa Catalana",
-    location: "Loreto, BCS",
-    type: "Residential",
-    status: "current",
-    year: "2024–2025",
-    image: CASA_CATALANA,
-    description:
-      "Large-scale residential construction project in the heart of Loreto. Foundation work completed with reinforced concrete structure. Featuring traditional Mexican colonial architecture with modern amenities.",
-    descriptionFull: "",
-    bedrooms: null,
-    bathrooms: null,
-    squareFeet: null,
-    gallery: [],
-    tags: ["Residential", "New Construction", "Colonial Style"],
-  },
-  {
-    id: "casa-caballo-mar",
-    slug: "casa-caballo-de-mar",
-    name: "Casa Caballo de Mar",
-    location: "Loreto, BCS",
-    type: "Residential",
-    status: "past",
-    year: "2020–2022",
-    image: CASA_CABALLO,
-    description:
-      "Landmark luxury residential villa featuring Mediterranean-inspired architecture, ornate stone work, lush tropical gardens, and a central fountain courtyard. A showcase of high-end construction in Loreto.",
-    descriptionFull: "",
-    bedrooms: null,
-    bathrooms: null,
-    squareFeet: null,
-    gallery: [],
-    tags: ["Luxury", "Mediterranean", "Completed"],
-  },
-  {
-    id: "villa-cortez",
-    slug: "villa-cortes",
-    name: "Villa Cortés",
-    location: "Loreto, BCS",
-    type: "Residential",
-    status: "planned",
-    year: "2026",
-    image: PORTFOLIO_PLANNED,
-    description:
-      "Upcoming luxury coastal villa with infinity pool overlooking the Sea of Cortez. Modern Mexican architecture with sustainable building practices and energy-efficient systems throughout.",
-    descriptionFull: "",
-    bedrooms: null,
-    bathrooms: null,
-    squareFeet: null,
-    gallery: [],
-    tags: ["Luxury", "Sustainable", "Coastal"],
-  },
-];
 
 export default function PortfolioSection() {
   const [activeTab, setActiveTab] = useState<string>("all");
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [projects, setProjects] = useState<Project[]>(
-    import.meta.env.DEV ? FALLBACK_PROJECTS : [],
-  );
-
-  useEffect(() => {
-    fetch("/api/projects")
-      .then((res) => {
-        if (!res.ok) throw new Error("fetch failed");
-        return res.json();
-      })
-      .then((data: Project[]) => {
-        setProjects(Array.isArray(data) && data.length > 0 ? data : FALLBACK_PROJECTS);
-      })
-      .catch(() => {
-        // Sin conexión a Notion (dev local o falla de la API): datos de respaldo
-        setProjects(FALLBACK_PROJECTS);
-      });
-  }, []);
+  const { projects } = useProjects();
 
   // Una pestaña por tipo, solo si hay proyectos de ese tipo
   const tabs = [
