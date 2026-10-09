@@ -1,5 +1,3 @@
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import ProjectDetail from "@/pages/ProjectDetail";
 import { Route, Switch } from "wouter";
@@ -22,10 +20,9 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        {/* Toaster (sonner) y TooltipProvider de la plantilla de Manus se quitaron:
+            el sitio no muestra toasts ni tooltips y sumaban ~180 KB de JS */}
+        <Router />
       </ThemeProvider>
     </ErrorBoundary>
   );

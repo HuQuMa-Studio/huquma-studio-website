@@ -111,7 +111,7 @@ export default function Footer() {
               href="https://www.loreto.com/hq/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#B8963E] hover:underline transition-colors"
+              className="text-[#B8963E] underline underline-offset-2 decoration-[#B8963E]/50 hover:decoration-[#B8963E] transition-colors"
             >
               HuQuMa
             </a>

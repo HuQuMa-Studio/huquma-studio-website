@@ -50,6 +50,17 @@ export default function ProjectDetail() {
     };
   }, [current]);
 
+  // Slug que no existe: la URL cae en index.html con estado 200 (vercel.json),
+  // así que se marca noindex para que Google no la guarde como página válida
+  useEffect(() => {
+    if (loading || current) return;
+    const robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex";
+    document.head.appendChild(robots);
+    return () => robots.remove();
+  }, [loading, current]);
+
   // Scroll al tope al cambiar de proyecto
   useEffect(() => {
     window.scrollTo(0, 0);
