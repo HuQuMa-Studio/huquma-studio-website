@@ -13,7 +13,7 @@ const LORETO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR5
 const stats = [
   { value: 30, suffix: "+", label: "Years of Experience" },
   { value: 100, suffix: "+", label: "Projects Completed" },
-  { value: 1993, suffix: "", label: "Year Founded" },
+  { value: 1993, suffix: "", label: "In Practice Since" },
   { value: 1, suffix: "", label: "Loreto, BCS" },
 ];
 

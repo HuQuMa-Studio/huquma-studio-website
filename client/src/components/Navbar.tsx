@@ -10,6 +10,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
+import WhatsAppTextLink from "@/components/WhatsAppTextLink";
+import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/logo_956d778e.png";
 
@@ -134,12 +136,10 @@ export default function Navbar() {
             {/* CTA + Mobile toggle */}
             <div className="flex items-center gap-3">
               <a
-                href="https://wa.me/526131220058/?text=Hi%20Hugo%2C%20I%20would%20like%20to%20schedule%20a%20call%20with%20you%2C%20please%20let%20me%20know%20when%20are%20you%20available"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={emailHref()}
                 className="hidden md:inline-flex btn-gold text-xs py-2 px-4"
               >
-                Schedule a Call →
+                {PRIMARY_CTA_LABEL} →
               </a>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
@@ -170,13 +170,11 @@ export default function Navbar() {
               {link.label}
             </button>
           ))}
-          <div className="mt-4 flex gap-4">
-            <a href="https://wa.me/526131220058/?text=Hi%20Hugo%2C%20I%20would%20like%20to%20schedule%20a%20call%20with%20you%2C%20please%20let%20me%20know%20when%20are%20you%20available" target="_blank" rel="noopener noreferrer" className="btn-ghost">
-              Schedule a Call →
+          <div className="mt-4 flex flex-col items-center gap-3">
+            <a href={emailHref()} className="btn-gold">
+              {PRIMARY_CTA_LABEL} →
             </a>
-            <a href="mailto:hugo@huquma.studio" className="btn-ghost">
-              Email
-            </a>
+            <WhatsAppTextLink />
           </div>
         </div>
       </div>

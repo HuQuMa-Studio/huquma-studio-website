@@ -23,6 +23,20 @@ export interface Project {
   tags: string[];
 }
 
+// Categorías de "Tipo" en Notion, en el orden de las pestañas del portafolio.
+// Solo se muestran las que tienen al menos un proyecto.
+export const projectTypes = [
+  "Residential",
+  "Commercial",
+  "Remodel & Additions",
+  "Development",
+] as const;
+
+// "Residential · 2007" — omite el separador si falta alguno de los dos.
+export function projectMeta(project: Pick<Project, "type" | "year">): string {
+  return [project.type, project.year].filter(Boolean).join(" · ");
+}
+
 export const statusColors: Record<ProjectStatus, string> = {
   current: "#4CAF50",
   past: "#B8963E",

@@ -1,6 +1,7 @@
 /* =============================================================
    PortfolioSection — HuQuMa Studio
-   Grid de proyectos con tabs de filtro. Cada card es clickable y
+   Grid de proyectos con tabs por tipo de construcción ("Tipo" en
+   Notion). Cada card es clickable y
    navega a /portfolio/:slug (la sub-página ProjectDetail).
    - Hover muestra descripción expandida + tags
    - Click en la card abre la sub-página del proyecto
@@ -8,8 +9,13 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import type { Project, ProjectStatus } from "@/types/project";
-import { statusColors, statusLabels } from "@/types/project";
+import type { Project } from "@/types/project";
+import {
+  projectMeta,
+  projectTypes,
+  statusColors,
+  statusLabels,
+} from "@/types/project";
 
 const CASA_CATALANA =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_catalana_f0ed1520.jpg";
@@ -44,7 +50,7 @@ const FALLBACK_PROJECTS: Project[] = [
     slug: "casa-caballo-de-mar",
     name: "Casa Caballo de Mar",
     location: "Loreto, BCS",
-    type: "Luxury Residential",
+    type: "Residential",
     status: "past",
     year: "2020–2022",
     image: CASA_CABALLO,
@@ -77,15 +83,8 @@ const FALLBACK_PROJECTS: Project[] = [
   },
 ];
 
-const tabs: { label: string; value: ProjectStatus | "all" }[] = [
-  { label: "All Projects", value: "all" },
-  { label: "In Progress", value: "current" },
-  { label: "Completed", value: "past" },
-  { label: "Upcoming", value: "planned" },
-];
-
 export default function PortfolioSection() {
-  const [activeTab, setActiveTab] = useState<ProjectStatus | "all">("all");
+  const [activeTab, setActiveTab] = useState<string>("all");
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [projects, setProjects] = useState<Project[]>(FALLBACK_PROJECTS);
 
@@ -105,10 +104,18 @@ export default function PortfolioSection() {
       });
   }, []);
 
+  // Una pestaña por tipo, solo si hay proyectos de ese tipo
+  const tabs = [
+    { label: "All Projects", value: "all" },
+    ...projectTypes
+      .filter((type) => projects.some((p) => p.type === type))
+      .map((type) => ({ label: type, value: type })),
+  ];
+
   const filtered =
     activeTab === "all"
       ? projects
-      : projects.filter((p) => p.status === activeTab);
+      : projects.filter((p) => p.type === activeTab);
 
   return (
     <section id="portfolio" className="py-24 md:py-32 bg-[#0D0D0D]">
@@ -119,8 +126,8 @@ export default function PortfolioSection() {
           <span className="gold-line" />
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5F0E8] leading-tight">
-              Projects<br />
-              <span className="text-[#B8963E] italic">Portafolio</span>
+              Selected<br />
+              <span className="text-[#B8963E] italic">Work</span>
             </h2>
             <p className="text-[#6A6A6A] text-sm max-w-xs leading-relaxed">
               A selection of residential and commercial projects across
@@ -181,7 +188,9 @@ export default function PortfolioSection() {
 
                 {/* Info overlay */}
                 <div className="overlay-info">
-                  <div className="section-number mb-1">{project.type} · {project.year}</div>
+                  {projectMeta(project) && (
+                    <div className="section-number mb-1">{projectMeta(project)}</div>
+                  )}
                   <h3 className="font-display text-2xl text-[#F5F0E8] leading-tight">
                     {project.name}
                   </h3>

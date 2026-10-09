@@ -8,6 +8,7 @@
    - Descripción completa (fallback a Descripción Corta si está vacía)
    - Specifications (Bedrooms · Bathrooms · Square Feet) — solo si tienen valor
    - Galería en grid (3 cols desktop) con Lightbox al hacer clic
+   - CTA de email ("Planning something like…?") + WhatsApp secundario
    - "Back to Portfolio" — navega a / y scrollea a #portfolio
    ============================================================= */
 
@@ -16,8 +17,10 @@ import { useLocation, useParams } from "wouter";
 import Footer from "@/components/Footer";
 import Lightbox from "@/components/Lightbox";
 import Navbar from "@/components/Navbar";
+import WhatsAppTextLink from "@/components/WhatsAppTextLink";
+import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 import type { Project } from "@/types/project";
-import { statusColors, statusLabels } from "@/types/project";
+import { projectMeta, statusColors, statusLabels } from "@/types/project";
 
 export default function ProjectDetail() {
   const params = useParams<{ slug: string }>();
@@ -153,9 +156,9 @@ export default function ProjectDetail() {
                 {statusLabels[project.status]}
               </span>
             </div>
-            <div className="section-number mb-3">
-              {project.type} · {project.year}
-            </div>
+            {projectMeta(project) && (
+              <div className="section-number mb-3">{projectMeta(project)}</div>
+            )}
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-[#F5F0E8] leading-none mb-4">
               {project.name}
             </h1>
@@ -260,10 +263,30 @@ export default function ProjectDetail() {
           </div>
         </section>
 
-        {/* Back to portfolio */}
+        {/* Contact CTA + back to portfolio */}
         <section className="pb-20">
           <div className="container">
-            <button onClick={goToPortfolio} className="btn-gold inline-flex">
+            <div className="border-t border-white/5 pt-12 md:pt-16 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:items-end">
+              <div>
+                <h2 className="font-display text-3xl md:text-4xl text-[#F5F0E8] leading-tight mb-3">
+                  Planning something like {project.name}?
+                </h2>
+                <p className="text-[#8A8A8A] text-sm leading-relaxed max-w-md">
+                  Tell me where your land is and what you want to build. Your
+                  email comes straight to me.
+                </p>
+              </div>
+              <div className="flex flex-col items-start md:items-end gap-2">
+                <a href={emailHref(project.name)} className="btn-gold inline-flex">
+                  {PRIMARY_CTA_LABEL} →
+                </a>
+                <WhatsAppTextLink />
+              </div>
+            </div>
+            <button
+              onClick={goToPortfolio}
+              className="mt-12 py-2 text-xs tracking-[0.2em] uppercase font-mono-custom text-[#8A8A8A] hover:text-[#B8963E] transition-colors"
+            >
               ← Back to Portfolio
             </button>
           </div>

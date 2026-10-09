@@ -128,7 +128,6 @@ export default function ServicesSection() {
         />
         <div className="absolute inset-0 bg-[#0D0D0D]/80" />
       </div>
-      <div className="absolute inset-0 arch-grid-bg z-0 opacity-30" />
 
       <div className="relative z-10 container">
         {/* Header */}

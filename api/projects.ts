@@ -65,7 +65,8 @@ function mapPage(page: NotionPage) {
     slug: slugManual || slugify(name),
     name,
     location: plainText(p["Localidad"]?.rich_text),
-    type: plainText(p["Tipo"]?.rich_text),
+    // "Tipo" es un Select en Notion (Residential, Commercial, …)
+    type: p["Tipo"]?.select?.name ?? plainText(p["Tipo"]?.rich_text),
     status: STATUS_MAP[statusName] ?? "current",
     year: plainText(p["Año"]?.rich_text),
     image: p["Foto Hero URL"]?.url ?? "",
