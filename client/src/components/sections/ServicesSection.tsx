@@ -1,169 +1,193 @@
 /* =============================================================
-   ServicesSection — HuQuMa Studio
-   Design: Grid de tarjetas de servicios con fondo de planos
-   - Imagen de fondo de blueprints con overlay oscuro
-   - Grid 3 columnas de tarjetas con icono + título + descripción
-   - Hover effect con borde dorado
+   ServicesSection — "Five services, one person"
+   Una foto de obra real por servicio. Desktop (lg+): franja de cinco
+   paneles verticales; el activo se abre (hover, foco o clic) y los
+   demás quedan como bandas con el nombre en vertical. Debajo de lg:
+   cinco tarjetas apiladas con todo el contenido visible.
+   Servicios y formas de contratación confirmados por Hugo (2026-10-09).
    ============================================================= */
 
-const SERVICES_BG = "/images/services-bg.webp";
+import { useState } from "react";
+import { emailHref } from "@/lib/contact";
+import { imageSrc, imageSrcSet } from "@/lib/image";
 
-const services = [
+const BLOB = "https://phqqmyu6mg1hod6o.public.blob.vercel-storage.com/portfolio/gallery";
+
+const WAYS_TO_HIRE = ["Design + Build", "Design only", "Build only", "Oversight", "Manage"];
+
+type Service = {
+  stage: "Design" | "Build" | "Manage";
+  name: string;
+  ask: string;
+  body: string;
+  types?: string[];
+  image: string;
+  alt: string;
+  caption: string;
+};
+
+const services: Service[] = [
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
-    title: "Custom Builds",
-    subtitle: "New Construction",
-    description:
-      "From the ground up — residential homes, commercial spaces, and custom properties designed and built to your exact specifications.",
+    stage: "Design",
+    name: "Architectural & engineering design",
+    ask: "Email me about a design",
+    body: "Plans, elevations, structural and engineering drawings, and the permit set. I take the permits through the municipality myself.",
+    image: "/images/hero-cover-1080.webp",
+    alt: "Architectural drawings on the HuQuMa Studio drafting table",
+    caption: "Studio drawings",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <rect x="2" y="3" width="20" height="14" rx="2"/>
-        <path d="M8 21h8M12 17v4"/>
-      </svg>
-    ),
-    title: "Architectural Design",
-    subtitle: "Initial Design",
-    description:
-      "Complete architectural design services including floor plans, elevations, structural drawings, and permit-ready documentation.",
+    stage: "Build",
+    name: "Construction",
+    ask: "Email me about a build",
+    body: "New custom homes, remodels and additions, from the foundation to the finishes.",
+    types: ["Custom homes", "Remodels & additions", "Pools", "Tiny houses", "Energy-efficient building"],
+    image: `${BLOB}/casa-danzante/1_foundation_casa_danzante.webp`,
+    alt: "Crew pouring the foundation slab of Casa Danzante",
+    caption: "Casa Danzante · foundation",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-      </svg>
-    ),
-    title: "Remodeling",
-    subtitle: "Renovations & Additions",
-    description:
-      "Complete remodeling projects, property additions, kitchen and bathroom renovations, and structural modifications.",
+    stage: "Build",
+    name: "DRO services",
+    ask: "Email me about DRO",
+    body: "Licensed Director Responsable de Obra in Baja California Sur. I sign and answer for my own projects, and I take the DRO role on other builders' projects too.",
+    image: `${BLOB}/casa-riquelme/casa_riquelme_shootcrete.webp`,
+    alt: "Shotcrete shell of Casa Riquelme under construction",
+    caption: "Casa Riquelme · shell",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-    ),
-    title: "Project Management",
-    subtitle: "Full Oversight",
-    description:
-      "Detailed project management from pre-construction planning through post-construction completion, ensuring quality and timeline compliance.",
+    stage: "Manage",
+    name: "Project management",
+    ask: "Email me about oversight",
+    body: "I represent you on a build run by another contractor and keep the schedule, budget and quality in check. I can also inspect a house or lot before you buy it.",
+    image: `${BLOB}/villa-linda-mar/3_ecoresort_villalindamar_tridipanel_system.webp`,
+    alt: "Panel wall system going up at Villa Linda Mar",
+    caption: "Villa Linda Mar · panel system",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 8v4l3 3"/>
-      </svg>
-    ),
-    title: "DRO Services",
-    subtitle: "Director Responsable de Obra",
-    description:
-      "Licensed DRO services for proper project initiation, regulatory compliance, and official decommissioning of construction projects in BCS.",
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-      </svg>
-    ),
-    title: "Facilities Management",
-    subtitle: "Ongoing Maintenance",
-    description:
-      "Ongoing facilities management services to maintain, operate, and optimize your property after construction is complete.",
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-        <path d="M7 12s1.5-3 5-3 5 3 5 3-1.5 3-5 3-5-3-5-3z"/>
-        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-      </svg>
-    ),
-    title: "Pool Installation",
-    subtitle: "Aquatic Features",
-    description:
-      "Custom pool design and installation, from simple residential pools to elaborate aquatic features with fountains and water elements.",
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-      </svg>
-    ),
-    title: "Tiny Houses",
-    subtitle: "Compact Living",
-    description:
-      "Innovative tiny house design and construction — efficient, sustainable, and beautifully crafted compact living solutions.",
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-      </svg>
-    ),
-    title: "Sustainable Building",
-    subtitle: "Energy Efficiency",
-    description:
-      "Specializing in energy-efficient construction techniques and sustainable building practices for environmentally responsible development.",
+    stage: "Manage",
+    name: "Facilities management",
+    ask: "Email me about house care",
+    body: "While you're away I look after the house: inspections, maintenance and repairs, hurricane prep, utilities and predial, and the house ready between rental guests.",
+    image: `${BLOB}/villa-linda-mar/1_ecoresort_villalindamar_finished_villas_Poolside.webp`,
+    alt: "Finished villas and pool at Villa Linda Mar",
+    caption: "Villa Linda Mar · finished",
   },
 ];
 
-export default function ServicesSection() {
-  return (
-    <section id="services" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={SERVICES_BG}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover"
-          style={{ filter: "brightness(0.12) saturate(0.5)" }}
-        />
-        <div className="absolute inset-0 bg-[#0D0D0D]/80" />
-      </div>
+// Construction abre por defecto: es el servicio que más buscan los dueños de casa
+const DEFAULT_OPEN = 1;
 
-      <div className="relative z-10 container">
-        {/* Header */}
-        <div className="mb-16 reveal">
-          <div className="section-number mb-3">03 — Services</div>
-          <span className="gold-line" />
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5F0E8] leading-tight">
-              What I Build<br />
-              <span className="text-[#B8963E] italic">& Deliver</span>
-            </h2>
-            <p className="text-[#828282] text-sm max-w-xs leading-relaxed">
-              Comprehensive design and construction services for residential,
-              commercial, and public projects throughout Baja California Sur.
+export default function ServicesSection() {
+  const [open, setOpen] = useState(DEFAULT_OPEN);
+
+  return (
+    <section id="services" className="relative py-24 md:py-32 bg-[#0D0D0D] overflow-hidden">
+      {/* Header */}
+      <div className="container mb-14 lg:mb-16 reveal">
+        <div className="section-number mb-3">03 — Services</div>
+        <span className="gold-line" />
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5F0E8] leading-tight">
+            Five services,<br />
+            <span className="text-[#B8963E] italic">one person</span>
+          </h2>
+          <div className="lg:text-right max-w-xl">
+            <p className="text-[#C8C8C8] text-base leading-relaxed">
+              Hire me for one of them or for the whole house. Every photo below is
+              one of my own sites.
             </p>
+            <ul className="mt-3 flex flex-wrap lg:justify-end gap-x-3 gap-y-1 font-mono-custom text-[0.65rem] tracking-[0.14em] uppercase text-[#D4AF5A]">
+              {WAYS_TO_HIRE.map((way, i) => (
+                <li key={way} className="flex items-center gap-3">
+                  {i > 0 && <span aria-hidden="true" className="text-[#4A4A4A]">/</span>}
+                  {way}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-
-        {/* Services grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
-          {services.map((service, i) => (
-            <div
-              key={service.title}
-              className="service-card reveal"
-              style={{ transitionDelay: `${(i % 3) * 80}ms` }}
-            >
-              <div className="text-[#B8963E] mb-4">{service.icon}</div>
-              <div className="section-number mb-1">{service.subtitle}</div>
-              <h3 className="font-display text-xl text-[#F5F0E8] mb-3">{service.title}</h3>
-              <p className="text-[#828282] text-sm leading-relaxed">{service.description}</p>
-            </div>
-          ))}
-        </div>
       </div>
+
+      {/* Franja de fotos */}
+      <ul className="flex flex-col gap-px bg-[#0D0D0D] lg:flex-row lg:h-[600px] reveal">
+        {services.map((service, i) => {
+          const isOpen = i === open;
+          const panelId = `service-panel-${i}`;
+          return (
+            <li
+              key={service.name}
+              onMouseEnter={() => setOpen(i)}
+              className="service-panel relative overflow-hidden lg:min-w-0"
+              data-open={isOpen}
+            >
+              {/* Foto */}
+              <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:absolute lg:inset-0 lg:aspect-auto">
+                <img
+                  src={imageSrc(service.image, 1080)}
+                  srcSet={imageSrcSet(service.image)}
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  alt={service.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="service-photo absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="service-shade absolute inset-0" />
+                <div className="service-caption absolute right-5 top-4 lg:right-7 lg:top-5 font-mono-custom text-[0.65rem] tracking-[0.2em] uppercase text-[#F5F0E8]/75">
+                  {service.caption}
+                </div>
+              </div>
+
+              {/* Banda cerrada (solo desktop): botón con el nombre en vertical */}
+              <button
+                type="button"
+                onClick={() => setOpen(i)}
+                onFocus={() => setOpen(i)}
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                className="service-tab hidden lg:flex absolute inset-0 items-end justify-start p-6 text-left"
+              >
+                <span className="service-tab-label flex items-center gap-4">
+                  <span className="section-number">{service.stage}</span>
+                  <span className="font-display text-[1.75rem] leading-none text-[#F5F0E8] whitespace-nowrap">
+                    {service.name}
+                  </span>
+                </span>
+              </button>
+
+              {/* Contenido: siempre visible en móvil; en desktop solo el panel abierto */}
+              <div
+                id={panelId}
+                className="service-body relative px-5 sm:px-8 pt-6 pb-10 lg:absolute lg:left-10 lg:right-10 lg:bottom-10 lg:p-0 xl:right-24"
+              >
+                <div className="section-number">{service.stage}</div>
+                <h3 className="font-display text-4xl lg:text-5xl leading-[1.02] text-[#F5F0E8] mt-2 mb-4 lg:max-w-xl">
+                  {service.name}
+                </h3>
+                <p className="text-[#C8C8C8] lg:text-[#D8D2C6] text-base leading-relaxed max-w-[34rem]">
+                  {service.body}
+                </p>
+                {service.types && (
+                  <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono-custom text-[0.65rem] tracking-[0.14em] uppercase text-[#C8C8C8]">
+                    {service.types.map((type, t) => (
+                      <li key={type} className="flex items-center gap-3">
+                        {t > 0 && <span aria-hidden="true" className="text-[#B8963E]">·</span>}
+                        {type}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <a
+                  href={emailHref(service.name)}
+                  className="inline-block mt-5 text-sm text-[#D4AF5A] underline-offset-4 hover:underline focus-visible:underline"
+                >
+                  {service.ask} →
+                </a>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }
