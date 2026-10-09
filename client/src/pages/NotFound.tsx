@@ -1,49 +1,38 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
-import { useLocation } from "wouter";
+/* =============================================================
+   NotFound — ruta desconocida. El pre-render la genera como 404.html,
+   que Vercel sirve con estado 404 (ya no hay catch-all que devuelva 200).
+   Enlaces <a> normales: recarga completa, así "/#portfolio" sí baja a la
+   sección (el router de wouter ignora el hash).
+   ============================================================= */
+
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export default function NotFound() {
-  const [, setLocation] = useLocation();
-
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
-          </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
+    <div className="min-h-screen bg-[#111111] flex flex-col">
+      <Navbar />
+      <main className="flex-1 flex items-center">
+        <div className="container py-40">
+          <div className="section-number mb-3">404</div>
+          <span className="gold-line" />
+          <h1 className="font-display text-5xl md:text-6xl text-[#F5F0E8] leading-tight max-w-2xl">
+            This page isn't on the plans.
+          </h1>
+          <p className="text-[#C8C8C8] text-base leading-relaxed max-w-md mt-6">
+            The address may have changed, or the project is no longer published.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
+          <div className="flex flex-wrap gap-x-8 gap-y-3 mt-10 text-sm">
+            <a href="/" className="text-[#D4AF5A] underline-offset-4 hover:underline">
+              Go to the home page →
+            </a>
+            <a href="/#portfolio" className="text-[#D4AF5A] underline-offset-4 hover:underline">
+              See the portfolio →
+            </a>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }

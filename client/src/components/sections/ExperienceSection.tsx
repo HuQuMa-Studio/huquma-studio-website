@@ -51,11 +51,15 @@ const timeline = [
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
-  const [count, setCount] = useState(0);
+  // Arranca en el valor final para que el HTML pre-renderizado (lo que leen
+  // buscadores y agentes sin JS) diga el número real; en el navegador se
+  // reinicia a 0 al montar y cuenta al entrar en pantalla.
+  const [count, setCount] = useState(target);
   const ref = useRef<HTMLDivElement>(null);
   const started = useRef(false);
 
   useEffect(() => {
+    if (!started.current) setCount(0);
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {

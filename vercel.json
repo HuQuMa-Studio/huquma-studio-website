@@ -3,7 +3,7 @@
     { "source": "/robots.txt", "destination": "/api/robots" },
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
     { "source": "/llms.txt", "destination": "/api/llms" },
-    { "source": "/((?!api/|_vercel/).*)", "destination": "/index.html" }
+    { "source": "/portfolio/:slug", "destination": "/index.html" }
   ],
   "images": {
     "sizes": [640, 1080, 1920],
