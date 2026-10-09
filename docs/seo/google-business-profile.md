@@ -16,23 +16,23 @@ lo que gana esa búsqueda, y Bing Places (que se importa desde Google) alimenta 
 |---|---|
 | Nombre del negocio | `HuQuMa Studio` (solo el nombre real; agregar palabras como "Builder Loreto" viola las reglas de Google y puede suspender la ficha) |
 | Categoría principal | `Home builder` (la más importante de todas; es la que usa JH Design Build) |
-| Categorías adicionales | `General contractor` · `Construction company` · `Property management company` · `Architect` **solo si tienes título/cédula de arquitecto**; si no, omítela |
+| Categorías adicionales | `General contractor` · `Construction company` · `Property management company` (sin `Architect`: Hugo no tiene cédula de arquitecto) |
 | Teléfono | `+52 613 122 0058` (el mismo del sitio, igual en todos lados) |
-| Sitio web | `https://huquma.studio/?utm_source=google&utm_medium=organic&utm_campaign=gbp` (después de la migración del dominio; mientras tanto la dirección `vercel.app` con los mismos parámetros) |
-| Horario | El que realmente atiendes (ej. lun–vie 8:00–17:00, sáb 9:00–13:00). Google favorece a los negocios abiertos al momento de la búsqueda |
+| Sitio web | **Hoy:** `https://huquma-studio-website.vercel.app/?utm_source=google&utm_medium=organic&utm_campaign=gbp`. **Al migrar el dominio:** cambiarlo a `https://huquma.studio/?utm_source=google&utm_medium=organic&utm_campaign=gbp` (hoy `huquma.studio` aún lleva al sitio viejo de Super.so) |
+| Horario | Lunes a viernes, 8:00–17:00 |
 | Fecha de apertura | Año en que empezaste a trabajar por tu cuenta (si es 1993, ponlo; refuerza la antigüedad) |
 
-### Dirección: decide una de dos
+### Dirección: negocio de área de servicio (decidido)
 
-- **Si recibes clientes en tu oficina** (Calle Ayuntamiento SN, Col. Centro, C.P. 23880):
-  muestra la dirección **exactamente así**, igual que en el sitio:
-  `Calle Ayuntamiento SN, Col. Centro, 23880 Loreto, B.C.S., México`.
-- **Si no recibes clientes ahí** (vas a la obra o al terreno): elige "negocio de área de
-  servicio", oculta la dirección y agrega áreas:
-  Loreto · Nopoló · Loreto Bay · Puerto Escondido · Ligüí · Ensenada Blanca · San Javier ·
-  Baja California Sur.
+Hugo no recibe clientes en la oficina: va a la obra o al terreno. En el alta, a la pregunta de
+si los clientes visitan tu ubicación, responde **No**. Google pide la dirección solo para
+verificar y **no la muestra**. Usa la misma del sitio:
+`Calle Ayuntamiento SN, Col. Centro, 23880 Loreto, B.C.S., México`.
 
-En cualquier caso, agrega esas áreas de servicio.
+Áreas de servicio: Loreto · Nopoló · Loreto Bay · Puerto Escondido · Ligüí · Ensenada Blanca ·
+San Javier · Baja California Sur.
+
+**Cuenta dueña de la ficha:** `hugo@huquma.studio`.
 
 ---
 
