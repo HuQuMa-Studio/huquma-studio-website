@@ -4,18 +4,20 @@
    
    Sections:
    1. Hero — "Del plano a la casa": plano · obra · casa terminada
-   2. About — Presentación de Hugo + retrato
-   3. Services — Grid de 9 servicios
-   4. Experience — Estadísticas + timeline
-   5. Portfolio — Proyectos con tabs
-   6. Contact — Información de contacto
-   7. Footer
+   2. Process — "How I work while you're away" (proceso a distancia)
+   3. About — Presentación de Hugo + retrato
+   4. Services — Grid de 9 servicios
+   5. Experience — Estadísticas + timeline
+   6. Portfolio — Proyectos con tabs
+   7. Contact — Información de contacto
+   8. Footer
    ============================================================= */
 
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
+import ProcessSection from "@/components/sections/ProcessSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
@@ -48,6 +50,7 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <ProcessSection />
         <AboutSection />
         <ServicesSection />
         <ExperienceSection />

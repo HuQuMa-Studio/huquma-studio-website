@@ -103,7 +103,7 @@ export default function ExperienceSection() {
       <div className="container">
         {/* Header */}
         <div className="mb-16 reveal">
-          <div className="section-number mb-3">03 — Experience</div>
+          <div className="section-number mb-3">04 — Experience</div>
           <span className="gold-line" />
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5F0E8] leading-tight">
             Three Decades of<br />

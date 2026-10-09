@@ -258,17 +258,77 @@
     transform: scaleX(1);
   }
 
-  /* Service card */
-  .service-card {
-    border: 1px solid oklch(1 0 0 / 8%);
-    background: oklch(0.13 0 0);
-    padding: 2rem;
-    transition: border-color 0.3s ease, background 0.3s ease;
+  /* Services: franja de fotos (una por servicio).
+     Desktop (lg+): el panel abierto crece y los demás quedan como bandas con
+     el nombre en vertical. Debajo de lg: tarjetas apiladas, todo visible. */
+  .service-shade {
+    background: linear-gradient(0deg, rgba(13, 13, 13, 0.55) 0%, transparent 45%);
   }
 
-  .service-card:hover {
-    border-color: var(--gold);
-    background: oklch(0.15 0 0);
+  @media (min-width: 1024px) {
+    .service-panel {
+      flex: 1 1 0;
+      transition: flex-grow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .service-panel[data-open="true"] {
+      flex-grow: 5.2;
+    }
+
+    .service-photo {
+      transition: filter 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: saturate(0.6) brightness(0.75);
+      transform: scale(1.04);
+    }
+
+    .service-panel[data-open="true"] .service-photo {
+      filter: none;
+      transform: scale(1);
+    }
+
+    .service-shade {
+      background: linear-gradient(0deg, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.6) 45%, rgba(13, 13, 13, 0.4) 100%);
+      transition: opacity 0.6s ease;
+    }
+
+    .service-panel[data-open="true"] .service-shade {
+      background: linear-gradient(0deg, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.78) 40%, transparent 78%);
+    }
+
+    .service-panel[data-open="false"] .service-caption {
+      opacity: 0;
+    }
+
+    .service-tab-label {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      transition: opacity 0.4s ease 0.35s;
+    }
+
+    /* Abierto: la banda queda enfocable pero no tapa el contenido */
+    .service-panel[data-open="true"] .service-tab {
+      pointer-events: none;
+    }
+
+    .service-panel[data-open="true"] .service-tab-label {
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    .service-tab:focus-visible {
+      outline: 1px solid var(--gold);
+      outline-offset: -1px;
+    }
+
+    .service-body {
+      transition: opacity 0.5s ease 0.2s, visibility 0s linear 0.2s;
+    }
+
+    .service-panel[data-open="false"] .service-body {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+    }
   }
 
   /* Stat counter */

@@ -66,7 +66,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      aria-label="From first sketch to finished house"
+      aria-label="From first sketch to finished home"
       className="relative flex flex-col lg:block bg-[#111111] pt-16 md:pt-20 lg:pt-0 lg:h-screen lg:min-h-[680px] overflow-hidden"
     >
       {/* Láminas: plano · obra · casa terminada */}
@@ -129,7 +129,7 @@ export default function HeroSection() {
       <div className="relative z-20 px-5 sm:px-8 pt-10 pb-8 lg:p-0 lg:absolute lg:top-20 lg:bottom-0 lg:left-[calc(2*max(200px,18vw)+4rem)] lg:right-[22rem] lg:flex lg:flex-col lg:justify-center -order-1">
         <h1 className="font-display text-[2.6rem] sm:text-5xl lg:text-6xl xl:text-7xl text-[#F5F0E8] leading-[1.02] max-w-xl">
           One person, from first sketch to{" "}
-          <span className="text-[#B8963E]">finished house.</span>
+          <span className="text-[#B8963E]">finished home.</span>
         </h1>
         <p className="text-[#C8C8C8] text-base leading-relaxed max-w-md mt-5">
           I design it, I build it, and I keep caring for it when you're not in

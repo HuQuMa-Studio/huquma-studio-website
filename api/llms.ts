@@ -37,7 +37,7 @@ export default async function handler(
   const md = [
     "# HuQuMa Studio [Design+Build]",
     "",
-    "> Design + Build + Manage practice of Hugo Quintero Maldonado in Loreto, Baja California Sur, México. One accountable person from first sketch to finished house, and facilities management after construction for owners who live abroad. Building in Baja California Sur since 1993.",
+    "> Design + Build + Manage practice of Hugo Quintero Maldonado in Loreto, Baja California Sur, México. One accountable person from first sketch to finished home, and facilities management after construction for owners who live abroad. Building in Baja California Sur since 1993.",
     "",
     `- [Website](${base}/): about, services, experience, portfolio and contact`,
     "",
