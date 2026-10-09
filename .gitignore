@@ -14,10 +14,13 @@ out/
 .env.local
 .env.*.local
 
-# Claude Code / IDE
+# Claude Code / IDE / docs de trabajo locales (no se usan en el build)
 .claude/
 CLAUDE.md
 ideas.md
+PRODUCT.md
+DESIGN.md
+.impeccable/
 
 # IDE and editor
 .vscode/
