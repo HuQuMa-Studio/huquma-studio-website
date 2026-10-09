@@ -16,6 +16,7 @@ import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 const LOGO_URL = "/images/logo-192.webp";
 
 const navLinks = [
+  { label: "How I Work", href: "#process" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
@@ -127,7 +128,7 @@ export default function Navbar() {
             </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}

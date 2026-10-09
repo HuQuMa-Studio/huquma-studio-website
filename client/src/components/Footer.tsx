@@ -8,6 +8,7 @@ import { useLocation } from "wouter";
 const LOGO_URL = "/images/logo-192.webp";
 
 const navLinks = [
+  { label: "How I Work", href: "#process" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
