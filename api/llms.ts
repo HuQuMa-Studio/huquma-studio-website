@@ -2,6 +2,7 @@
 // agentes de IA (https://llmstxt.org). Los proyectos salen de Notion y los
 // enlaces usan el host de la petición.
 
+import { FAQS } from "../client/src/data/faq.js";
 import { fetchProjects, type VercelRes } from "./_notion.js";
 
 // Igual que la sección Services del sitio (ServicesSection.tsx)
@@ -61,6 +62,9 @@ export default async function handler(
     ...REMOTE_PROCESS.map((s) => `- ${s}`),
     "",
     ...(portfolio.length ? ["## Portfolio", "", ...portfolio, ""] : []),
+    "## FAQ",
+    "",
+    ...FAQS.flatMap((f) => [`### ${f.question}`, "", f.answer, ""]),
     "## Contact",
     "",
     "- [Email hugo@huquma.studio](mailto:hugo@huquma.studio): preferred. Include where the land is, lot size, what you want to build or remodel, ideal timeline, and whether you already have plans.",
