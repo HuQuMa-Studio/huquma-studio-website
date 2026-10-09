@@ -3,7 +3,7 @@
    Design: Full-viewport hero con imagen de planos arquitectónicos
    - Imagen de fondo con overlay oscuro
    - Logo + título centrado
-   - Scroll indicator animado
+   - Indicador de scroll (estático, sin rebote)
    ============================================================= */
 
 import { useEffect, useState } from "react";
@@ -11,8 +11,9 @@ import { ChevronDown } from "lucide-react";
 import WhatsAppTextLink from "@/components/WhatsAppTextLink";
 import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/hero_cover_250c3d3c.jpg";
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/logo_956d778e.png";
+const HERO_IMAGE = "/images/hero-cover-1920.webp";
+const HERO_SRCSET = "/images/hero-cover-1080.webp 1080w, /images/hero-cover-1920.webp 1920w";
+const LOGO_URL = "/images/logo-192.webp";
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -31,6 +32,11 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src={HERO_IMAGE}
+          srcSet={HERO_SRCSET}
+          sizes="100vw"
+          width={1920}
+          height={1440}
+          fetchPriority="high"
           alt="Architectural drawings and blueprints"
           className="w-full h-full object-cover object-center"
           style={{ filter: "brightness(0.35) saturate(0.6)" }}
@@ -51,6 +57,8 @@ export default function HeroSection() {
           <img
             src={LOGO_URL}
             alt="HuQuMa Studio"
+            width={96}
+            height={96}
             className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-2xl"
             style={{ filter: "brightness(0.9) contrast(1.1)" }}
           />
@@ -86,10 +94,10 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
         <button
           onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-          className="text-[#8A8A8A] hover:text-[#B8963E] transition-colors"
+          className="w-11 h-11 flex items-center justify-center text-[#8A8A8A] hover:text-[#B8963E] transition-colors"
           aria-label="Scroll down"
         >
           <ChevronDown size={24} />

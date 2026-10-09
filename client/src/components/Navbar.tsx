@@ -13,7 +13,7 @@ import { useLocation } from "wouter";
 import WhatsAppTextLink from "@/components/WhatsAppTextLink";
 import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/logo_956d778e.png";
+const LOGO_URL = "/images/logo-192.webp";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -28,6 +28,14 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [location, setLocation] = useLocation();
+
+  // Bloquea el scroll del body mientras el menú móvil está abierto
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,6 +112,8 @@ export default function Navbar() {
               <img
                 src={LOGO_URL}
                 alt="HuQuMa Studio Logo"
+                width={40}
+                height={40}
                 className="w-9 h-9 md:w-10 md:h-10 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
               />
               <div className="hidden sm:block">
@@ -117,7 +127,7 @@ export default function Navbar() {
             </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
@@ -137,14 +147,16 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <a
                 href={emailHref()}
-                className="hidden md:inline-flex btn-gold text-xs py-2 px-4"
+                className="hidden lg:inline-flex btn-gold text-xs py-2 px-4"
               >
                 {PRIMARY_CTA_LABEL} →
               </a>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden text-[#8A8A8A] hover:text-[#F5F0E8] transition-colors p-1"
-                aria-label="Toggle menu"
+                className="lg:hidden w-11 h-11 -mr-2 flex items-center justify-center text-[#8A8A8A] hover:text-[#F5F0E8] transition-colors"
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-menu"
               >
                 {mobileOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
@@ -155,7 +167,9 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-[#0F0F0F]/98 backdrop-blur-md transition-all duration-300 md:hidden ${
+        id="mobile-menu"
+        inert={!mobileOpen}
+        className={`fixed inset-0 z-40 bg-[#0F0F0F]/98 backdrop-blur-md transition-all duration-300 lg:hidden ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >

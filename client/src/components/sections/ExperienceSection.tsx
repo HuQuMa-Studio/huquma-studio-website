@@ -8,7 +8,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const LORETO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/experience_bg-ANxTmw3XhhpWHdrucE8YP4.webp";
+const LORETO_BG = "/images/experience-bg.webp";
 
 const stats = [
   { value: 30, suffix: "+", label: "Years of Experience" },
@@ -117,6 +117,8 @@ export default function ExperienceSection() {
             <img
               src={LORETO_BG}
               alt="Loreto, Baja California Sur"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
               style={{ filter: "brightness(0.45) saturate(0.8)" }}
             />
@@ -127,7 +129,7 @@ export default function ExperienceSection() {
             {stats.map((stat) => (
               <div key={stat.label} className="p-8 md:p-12 text-center">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                <div className="text-[#6A6A6A] text-xs tracking-widest uppercase mt-2 font-mono-custom">
+                <div className="text-[#828282] text-xs tracking-widest uppercase mt-2 font-mono-custom">
                   {stat.label}
                 </div>
               </div>
@@ -151,7 +153,7 @@ export default function ExperienceSection() {
                   {item.period}
                 </div>
                 <h4 className="font-display text-xl text-[#F5F0E8] mb-2">{item.title}</h4>
-                <p className="text-[#6A6A6A] text-sm leading-relaxed">{item.description}</p>
+                <p className="text-[#828282] text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>

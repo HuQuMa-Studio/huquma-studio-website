@@ -6,7 +6,7 @@
    - Hover effect con borde dorado
    ============================================================= */
 
-const SERVICES_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/services_bg-6KeABq2EKfSu3wxs2etGKW.webp";
+const SERVICES_BG = "/images/services-bg.webp";
 
 const services = [
   {
@@ -123,6 +123,8 @@ export default function ServicesSection() {
         <img
           src={SERVICES_BG}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.12) saturate(0.5)" }}
         />
@@ -139,7 +141,7 @@ export default function ServicesSection() {
               What I Build<br />
               <span className="text-[#B8963E] italic">& Deliver</span>
             </h2>
-            <p className="text-[#6A6A6A] text-sm max-w-xs leading-relaxed">
+            <p className="text-[#828282] text-sm max-w-xs leading-relaxed">
               Comprehensive design and construction services for residential,
               commercial, and public projects throughout Baja California Sur.
             </p>
@@ -157,7 +159,7 @@ export default function ServicesSection() {
               <div className="text-[#B8963E] mb-4">{service.icon}</div>
               <div className="section-number mb-1">{service.subtitle}</div>
               <h3 className="font-display text-xl text-[#F5F0E8] mb-3">{service.title}</h3>
-              <p className="text-[#6A6A6A] text-sm leading-relaxed">{service.description}</p>
+              <p className="text-[#828282] text-sm leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>

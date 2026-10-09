@@ -1,3 +1,17 @@
 {
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/robots.txt", "destination": "/api/robots" },
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/llms.txt", "destination": "/api/llms" },
+    { "source": "/((?!api/|_vercel/).*)", "destination": "/index.html" }
+  ],
+  "images": {
+    "sizes": [640, 1080, 1920],
+    "qualities": [70],
+    "formats": ["image/webp"],
+    "minimumCacheTTL": 2678400,
+    "remotePatterns": [
+      { "protocol": "https", "hostname": "phqqmyu6mg1hod6o.public.blob.vercel-storage.com" }
+    ]
+  }
 }

@@ -20,7 +20,9 @@ import Navbar from "@/components/Navbar";
 import WhatsAppTextLink from "@/components/WhatsAppTextLink";
 import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 import type { Project } from "@/types/project";
-import { projectMeta, statusColors, statusLabels } from "@/types/project";
+import StatusBadge from "@/components/StatusBadge";
+import { GRID_SIZES, imageSrc, imageSrcSet } from "@/lib/image";
+import { projectMeta } from "@/types/project";
 
 export default function ProjectDetail() {
   const params = useParams<{ slug: string }>();
@@ -38,6 +40,21 @@ export default function ProjectDetail() {
       .catch(() => setProjects([]))
       .finally(() => setLoading(false));
   }, []);
+
+  // Título y descripción propios del proyecto (pestaña, buscadores, compartir)
+  const current = projects.find((p) => p.slug === slug);
+  useEffect(() => {
+    if (!current) return;
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const prevTitle = document.title;
+    const prevDesc = meta?.content ?? "";
+    document.title = `${current.name} — HuQuMa Studio [Design+Build]`;
+    if (meta && current.description) meta.content = current.description;
+    return () => {
+      document.title = prevTitle;
+      if (meta) meta.content = prevDesc;
+    };
+  }, [current]);
 
   // Scroll al tope al cambiar de proyecto
   useEffect(() => {
@@ -75,7 +92,7 @@ export default function ProjectDetail() {
             <h1 className="font-display text-4xl md:text-5xl text-[#F5F0E8] mb-6">
               Project not found
             </h1>
-            <p className="text-[#6A6A6A] text-sm mb-8 max-w-md mx-auto">
+            <p className="text-[#828282] text-sm mb-8 max-w-md mx-auto">
               The project "{slug}" doesn't exist in our portfolio. It may have
               been renamed or removed.
             </p>
@@ -111,50 +128,44 @@ export default function ProjectDetail() {
 
       <main className="pt-20 md:pt-24">
         {/* Breadcrumb */}
-        <div className="container py-5">
+        <div className="container py-2">
           <nav
             aria-label="Breadcrumb"
-            className="text-[10px] tracking-[0.2em] uppercase font-mono-custom text-[#6A6A6A] flex flex-wrap items-center gap-2"
+            className="text-[10px] tracking-[0.2em] uppercase font-mono-custom text-[#828282] flex flex-wrap items-center gap-2"
           >
             <button
               onClick={() => setLocation("/")}
-              className="hover:text-[#B8963E] transition-colors"
+              className="py-3 hover:text-[#B8963E] transition-colors"
             >
               HuQuMa Studio
             </button>
-            <span className="text-[#4A4A4A]">/</span>
+            <span className="text-[#7A7A7A]">/</span>
             <button
               onClick={goToPortfolio}
-              className="hover:text-[#B8963E] transition-colors"
+              className="py-3 hover:text-[#B8963E] transition-colors"
             >
               Portfolio
             </button>
-            <span className="text-[#4A4A4A]">/</span>
-            <span className="text-[#F5F0E8]">{project.name}</span>
+            <span className="text-[#7A7A7A]">/</span>
+            <span className="text-[#F5F0E8]" aria-current="page">{project.name}</span>
           </nav>
         </div>
 
         {/* Hero */}
         <div className="relative w-full h-[55vh] md:h-[70vh] overflow-hidden">
           <img
-            src={project.image}
+            src={imageSrc(project.image, 1920)}
+            srcSet={imageSrcSet(project.image)}
+            sizes="100vw"
             alt={project.name}
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/30 to-transparent" />
 
           <div className="absolute bottom-0 left-0 right-0 container py-10 md:py-16">
             <div className="mb-4">
-              <span
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] tracking-widest uppercase font-mono-custom"
-                style={{
-                  background: `${statusColors[project.status]}DD`,
-                  border: "1px solid #FFFFFF",
-                  color: "#FFFFFF",
-                }}
-              >
-                {statusLabels[project.status]}
-              </span>
+              <StatusBadge status={project.status} />
             </div>
             {projectMeta(project) && (
               <div className="section-number mb-3">{projectMeta(project)}</div>
@@ -214,7 +225,7 @@ export default function ProjectDetail() {
                         key={s.label}
                         className="flex items-baseline justify-between border-b border-white/5 py-4"
                       >
-                        <dt className="text-[#6A6A6A] text-xs uppercase tracking-wider font-mono-custom">
+                        <dt className="text-[#828282] text-xs uppercase tracking-wider font-mono-custom">
                           {s.label}
                         </dt>
                         <dd className="text-[#F5F0E8] font-display text-2xl md:text-3xl">
@@ -245,8 +256,12 @@ export default function ProjectDetail() {
                     aria-label={`View photo ${i + 1}`}
                   >
                     <img
-                      src={url}
+                      src={imageSrc(url, 1080)}
+                      srcSet={imageSrcSet(url)}
+                      sizes={GRID_SIZES}
                       alt={`${project.name} photo ${i + 1}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -255,7 +270,7 @@ export default function ProjectDetail() {
               </div>
             ) : (
               <div className="border border-white/5 bg-[#1A1A1A]/30 py-16 px-6 text-center">
-                <p className="text-[#6A6A6A] text-sm font-mono-custom tracking-wide">
+                <p className="text-[#828282] text-sm font-mono-custom tracking-wide">
                   More photos coming soon
                 </p>
               </div>
