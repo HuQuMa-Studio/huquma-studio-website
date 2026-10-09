@@ -37,12 +37,6 @@ export function projectMeta(project: Pick<Project, "type" | "year">): string {
   return [project.type, project.year].filter(Boolean).join(" · ");
 }
 
-export const statusColors: Record<ProjectStatus, string> = {
-  current: "#4CAF50",
-  past: "#B8963E",
-  planned: "#5B9BD5",
-};
-
 export const statusLabels: Record<ProjectStatus, string> = {
   current: "In Progress",
   past: "Completed",

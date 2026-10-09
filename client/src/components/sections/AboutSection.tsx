@@ -6,7 +6,7 @@
    - Badges de credenciales
    ============================================================= */
 
-const PORTRAIT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/hugo_portrait_1f60c026.jpg";
+const PORTRAIT_URL = "/images/hugo-portrait.webp";
 
 const credentials = [
   { label: "DRO", desc: "Director Responsable de Obra" },
@@ -83,7 +83,7 @@ export default function AboutSection() {
                   <span className="font-display text-xl text-[#B8963E] font-semibold leading-none">
                     {c.label}
                   </span>
-                  <span className="text-xs text-[#6A6A6A] tracking-wide leading-tight">
+                  <span className="text-xs text-[#828282] tracking-wide leading-tight">
                     {c.desc}
                   </span>
                 </div>
@@ -100,6 +100,10 @@ export default function AboutSection() {
                 <img
                   src={PORTRAIT_URL}
                   alt="Hugo Quintero Maldonado — HuQuMa Studio"
+                  width={720}
+                  height={960}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full object-cover"
                   style={{
                     aspectRatio: "3/4",

@@ -8,6 +8,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { imageSrc, imageSrcSet } from "@/lib/image";
 
 interface LightboxProps {
   images: string[];
@@ -89,7 +90,9 @@ export default function Lightbox({ images, openIndex, onClose }: LightboxProps) 
 
       {/* Image */}
       <img
-        src={images[index]}
+        src={imageSrc(images[index], 1920)}
+        srcSet={imageSrcSet(images[index])}
+        sizes="90vw"
         alt={`Photo ${index + 1}`}
         className="max-w-[90vw] max-h-[85vh] object-contain"
         onClick={(e) => e.stopPropagation()}

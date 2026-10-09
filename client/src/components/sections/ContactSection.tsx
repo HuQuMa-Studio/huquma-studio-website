@@ -15,7 +15,7 @@ import {
   emailHref,
 } from "@/lib/contact";
 
-const CONTACT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/contact_bg-66anXKfdipuCSpRaTqL9ce.webp";
+const CONTACT_BG = "/images/contact-bg.webp";
 
 const contactItems = [
   {
@@ -83,6 +83,8 @@ export default function ContactSection() {
         <img
           src={CONTACT_BG}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.15) saturate(0.6)" }}
         />
@@ -99,7 +101,7 @@ export default function ContactSection() {
               Let's Build<br />
               <span className="text-[#B8963E] italic">Together</span>
             </h2>
-            <p className="text-[#6A6A6A] text-sm leading-relaxed mb-10 max-w-sm">
+            <p className="text-[#828282] text-sm leading-relaxed mb-10 max-w-sm">
               Ready to start your project? Send me an email with where your land
               is and what you want to build, renovate, or add. It comes straight
               to me. Based in Loreto, serving all of Baja California Sur.
@@ -130,7 +132,7 @@ export default function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="w-10 h-10 flex items-center justify-center border border-white/10 text-[#6A6A6A] hover:border-[#B8963E] hover:text-[#B8963E] transition-all duration-200"
+                    className="w-10 h-10 flex items-center justify-center border border-white/10 text-[#828282] hover:border-[#B8963E] hover:text-[#B8963E] transition-all duration-200"
                   >
                     {social.icon}
                   </a>
@@ -176,7 +178,7 @@ export default function ContactSection() {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
-                <address className="not-italic text-[#6A6A6A] text-sm leading-relaxed group-hover:text-[#D4AF5A] transition-colors">
+                <address className="not-italic text-[#828282] text-sm leading-relaxed group-hover:text-[#D4AF5A] transition-colors">
                   Calle Ayuntamiento SN<br />
                   Col. Centro, C.P. 23880<br />
                   Loreto, Baja California Sur, México

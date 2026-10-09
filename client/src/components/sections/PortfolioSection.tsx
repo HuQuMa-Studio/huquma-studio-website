@@ -10,12 +10,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import type { Project } from "@/types/project";
-import {
-  projectMeta,
-  projectTypes,
-  statusColors,
-  statusLabels,
-} from "@/types/project";
+import StatusBadge from "@/components/StatusBadge";
+import { GRID_SIZES, imageSrc, imageSrcSet } from "@/lib/image";
+import { projectMeta, projectTypes } from "@/types/project";
 
 const CASA_CATALANA =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/casa_catalana_f0ed1520.jpg";
@@ -24,8 +21,9 @@ const CASA_CABALLO =
 const PORTFOLIO_PLANNED =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/gfR56a3Q9yCfv9Uqrxh4gB/portfolio_planned-jWJhzyuBYpp7Sagu6cMu34.webp";
 
-// Datos de respaldo: se muestran de inmediato y en desarrollo local
-// (donde /api/projects no está disponible). En producción, Notion los reemplaza.
+// Datos de respaldo: en desarrollo local (donde /api/projects no corre) y si
+// la API falla. En producción no se pintan de entrada, para no descargar sus
+// imágenes antes de que lleguen los datos de Notion.
 const FALLBACK_PROJECTS: Project[] = [
   {
     id: "casa-catalana",
@@ -86,7 +84,9 @@ const FALLBACK_PROJECTS: Project[] = [
 export default function PortfolioSection() {
   const [activeTab, setActiveTab] = useState<string>("all");
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [projects, setProjects] = useState<Project[]>(FALLBACK_PROJECTS);
+  const [projects, setProjects] = useState<Project[]>(
+    import.meta.env.DEV ? FALLBACK_PROJECTS : [],
+  );
 
   useEffect(() => {
     fetch("/api/projects")
@@ -95,12 +95,11 @@ export default function PortfolioSection() {
         return res.json();
       })
       .then((data: Project[]) => {
-        if (Array.isArray(data) && data.length > 0) {
-          setProjects(data);
-        }
+        setProjects(Array.isArray(data) && data.length > 0 ? data : FALLBACK_PROJECTS);
       })
       .catch(() => {
-        // Sin conexión a Notion (dev local): se mantienen los datos de respaldo
+        // Sin conexión a Notion (dev local o falla de la API): datos de respaldo
+        setProjects(FALLBACK_PROJECTS);
       });
   }, []);
 
@@ -129,7 +128,7 @@ export default function PortfolioSection() {
               Selected<br />
               <span className="text-[#B8963E] italic">Work</span>
             </h2>
-            <p className="text-[#6A6A6A] text-sm max-w-xs leading-relaxed">
+            <p className="text-[#828282] text-sm max-w-xs leading-relaxed">
               A selection of residential and commercial projects across
               Baja California Sur.
             </p>
@@ -142,10 +141,11 @@ export default function PortfolioSection() {
             <button
               key={tab.value}
               onClick={() => setActiveTab(tab.value)}
-              className={`px-5 py-2 text-xs tracking-widest uppercase font-mono-custom transition-all duration-200 ${
+              aria-pressed={activeTab === tab.value}
+              className={`px-5 py-3 text-xs tracking-widest uppercase font-mono-custom transition-all duration-200 ${
                 activeTab === tab.value
                   ? "bg-[#B8963E] text-[#111111]"
-                  : "bg-transparent border border-white/10 text-[#6A6A6A] hover:border-[#B8963E]/50 hover:text-[#B8963E]"
+                  : "bg-transparent border border-white/10 text-[#828282] hover:border-[#B8963E]/50 hover:text-[#B8963E]"
               }`}
             >
               {tab.label}
@@ -166,24 +166,19 @@ export default function PortfolioSection() {
               {/* Image */}
               <div className="relative" style={{ aspectRatio: "4/3" }}>
                 <img
-                  src={project.image}
+                  src={imageSrc(project.image, 1080)}
+                  srcSet={imageSrcSet(project.image)}
+                  sizes={GRID_SIZES}
                   alt={project.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="overlay" />
 
                 {/* Status badge */}
                 <div className="absolute top-4 left-4 z-10">
-                  <span
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] tracking-widest uppercase font-mono-custom"
-                    style={{
-                      background: `${statusColors[project.status]}DD`,
-                      border: `1px solid #FFFFFF`,
-                      color: `#FFFFFF`,
-                    }}
-                  >
-                    {statusLabels[project.status]}
-                  </span>
+                  <StatusBadge status={project.status} />
                 </div>
 
                 {/* Info overlay */}
@@ -228,7 +223,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* Note */}
-        <p className="text-[#4A4A4A] text-xs text-center mt-8 font-mono-custom tracking-wide reveal">
+        <p className="text-[#7A7A7A] text-xs text-center mt-8 font-mono-custom tracking-wide reveal">
           More projects available upon request — contact for full portfolio
         </p>
       </div>
