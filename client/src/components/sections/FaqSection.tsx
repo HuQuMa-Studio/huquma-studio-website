@@ -5,6 +5,7 @@
    en data/faq.ts y alimentan también el JSON-LD FAQPage (lib/seo.ts).
    ============================================================= */
 
+import { Link } from "wouter";
 import WhatsAppTextLink from "@/components/WhatsAppTextLink";
 import { FAQS } from "@/data/faq";
 import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
@@ -33,6 +34,9 @@ export default function FaqSection() {
             </a>
             <WhatsAppTextLink />
           </div>
+          <Link href="/guides" className="inline-block mt-8 text-sm text-[#D4AF5A] underline-offset-4 hover:underline">
+            Longer answers in the guides →
+          </Link>
         </div>
 
         {/* Preguntas */}

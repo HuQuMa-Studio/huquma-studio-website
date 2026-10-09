@@ -6,6 +6,7 @@
    frecuencias ni testimonios que él no haya confirmado.
    ============================================================= */
 
+import { Link } from "wouter";
 import WhatsAppTextLink from "@/components/WhatsAppTextLink";
 import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 
@@ -88,6 +89,9 @@ export default function ProcessSection() {
             {PRIMARY_CTA_LABEL}
           </a>
           <WhatsAppTextLink />
+          <Link href="/guides/building-a-home-in-loreto-from-abroad" className="text-sm text-[#D4AF5A] underline-offset-4 hover:underline sm:ml-auto">
+            Read the full guide to building from abroad →
+          </Link>
         </div>
       </div>
     </section>
