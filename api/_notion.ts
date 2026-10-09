@@ -80,6 +80,10 @@ function mapPage(page: NotionPage) {
     squareFeet: p["Square Feet"]?.number ?? null,
     gallery: parseGallery(plainText(p["Galería URLs"]?.rich_text)),
     tags: (p["Etiquetas"]?.multi_select ?? []).map((t) => t.name),
+    // Portada "Del plano a la casa": láminas 01 (plano) y 02 (obra)
+    planImage: p["Foto Plano URL"]?.url ?? "",
+    buildImage: p["Foto Obra URL"]?.url ?? "",
+    featured: p["Mostrar en Portada"]?.checkbox ?? false,
   };
 }
 

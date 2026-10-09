@@ -21,6 +21,9 @@ export interface Project {
   squareFeet: number | null;
   gallery: string[]; // URLs de fotos adicionales (cada línea de "Galería URLs" en Notion)
   tags: string[];
+  planImage: string; // Foto Plano URL — lámina 01 de la portada (opcional)
+  buildImage: string; // Foto Obra URL — lámina 02 de la portada
+  featured: boolean; // Mostrar en Portada
 }
 
 // Categorías de "Tipo" en Notion, en el orden de las pestañas del portafolio.

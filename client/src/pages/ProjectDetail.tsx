@@ -13,13 +13,13 @@
    ============================================================= */
 
 import { useEffect, useState } from "react";
+import { useProjects } from "@/hooks/useProjects";
 import { useLocation, useParams } from "wouter";
 import Footer from "@/components/Footer";
 import Lightbox from "@/components/Lightbox";
 import Navbar from "@/components/Navbar";
 import WhatsAppTextLink from "@/components/WhatsAppTextLink";
 import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
-import type { Project } from "@/types/project";
 import StatusBadge from "@/components/StatusBadge";
 import { GRID_SIZES, imageSrc, imageSrcSet } from "@/lib/image";
 import { projectMeta } from "@/types/project";
@@ -29,17 +29,9 @@ export default function ProjectDetail() {
   const slug = params.slug;
   const [, setLocation] = useLocation();
 
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { projects, loading } = useProjects();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    fetch("/api/projects")
-      .then((res) => res.json())
-      .then((data: Project[]) => setProjects(data))
-      .catch(() => setProjects([]))
-      .finally(() => setLoading(false));
-  }, []);
 
   // Título y descripción propios del proyecto (pestaña, buscadores, compartir)
   const current = projects.find((p) => p.slug === slug);

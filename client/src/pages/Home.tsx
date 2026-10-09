@@ -3,7 +3,7 @@
    Design Philosophy: Modernismo Tectónico — Arquitectura como Interfaz
    
    Sections:
-   1. Hero — Full-viewport con imagen de planos
+   1. Hero — "Del plano a la casa": plano · obra · casa terminada
    2. About — Presentación de Hugo + retrato
    3. Services — Grid de 9 servicios
    4. Experience — Estadísticas + timeline
