@@ -21,7 +21,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Text column */}
           <div className="reveal">
-            <div className="section-number mb-3">01 — About</div>
+            <div className="section-number mb-3">02 — About</div>
             <span className="gold-line" />
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5F0E8] mb-8 leading-tight">
               Hugo Quintero<br />

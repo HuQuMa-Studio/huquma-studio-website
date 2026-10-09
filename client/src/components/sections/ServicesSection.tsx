@@ -134,7 +134,7 @@ export default function ServicesSection() {
       <div className="relative z-10 container">
         {/* Header */}
         <div className="mb-16 reveal">
-          <div className="section-number mb-3">02 — Services</div>
+          <div className="section-number mb-3">03 — Services</div>
           <span className="gold-line" />
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5F0E8] leading-tight">
