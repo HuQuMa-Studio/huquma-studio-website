@@ -127,7 +127,7 @@ export default function Navbar() {
             </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
@@ -147,13 +147,13 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <a
                 href={emailHref()}
-                className="hidden md:inline-flex btn-gold text-xs py-2 px-4"
+                className="hidden lg:inline-flex btn-gold text-xs py-2 px-4"
               >
                 {PRIMARY_CTA_LABEL} →
               </a>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden w-11 h-11 -mr-2 flex items-center justify-center text-[#8A8A8A] hover:text-[#F5F0E8] transition-colors"
+                className="lg:hidden w-11 h-11 -mr-2 flex items-center justify-center text-[#8A8A8A] hover:text-[#F5F0E8] transition-colors"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu"
@@ -169,7 +169,7 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         inert={!mobileOpen}
-        className={`fixed inset-0 z-40 bg-[#0F0F0F]/98 backdrop-blur-md transition-all duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-[#0F0F0F]/98 backdrop-blur-md transition-all duration-300 lg:hidden ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
