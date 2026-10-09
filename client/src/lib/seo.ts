@@ -6,6 +6,7 @@
    Solo datos confirmados por Hugo (ver PRODUCT.md / CLAUDE.md).
    ============================================================= */
 
+import { FAQS } from "@/data/faq";
 import { EMAIL, WHATSAPP_NUMBER } from "@/lib/contact";
 import type { Project } from "@/types/project";
 
@@ -107,6 +108,16 @@ export function homeJsonLd(site: string, projects: Project[]) {
           itemOffered: { "@type": "Service", name: s.name, description: s.description, areaServed: "Baja California Sur" },
         })),
         subjectOf: projects.map((p) => ({ "@id": `${site}/portfolio/${p.slug}#project` })),
+      },
+      {
+        // Visible en la sección FAQ de la portada (mismos textos, data/faq.ts)
+        "@type": "FAQPage",
+        "@id": `${site}/#faq`,
+        mainEntity: FAQS.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
       },
       {
         "@type": "Person",

@@ -9,8 +9,9 @@
    4. Services — Grid de 9 servicios
    5. Experience — Estadísticas + timeline
    6. Portfolio — Proyectos con tabs
-   7. Contact — Información de contacto
-   8. Footer
+   7. FAQ — Preguntas frecuentes (data/faq.ts, también JSON-LD FAQPage)
+   8. Contact — Información de contacto
+   9. Footer
    ============================================================= */
 
 import { useEffect } from "react";
@@ -22,6 +23,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import PortfolioSection from "@/components/sections/PortfolioSection";
+import FaqSection from "@/components/sections/FaqSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 export default function Home() {
@@ -55,6 +57,7 @@ export default function Home() {
         <ServicesSection />
         <ExperienceSection />
         <PortfolioSection />
+        <FaqSection />
         <ContactSection />
       </main>
       <Footer />

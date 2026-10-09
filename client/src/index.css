@@ -271,6 +271,25 @@
     }
   }
 
+  /* FAQ: acordeón nativo. Sin el triángulo del navegador; el "+" pierde la
+     barra vertical al abrir y queda como "−". */
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary:focus-visible {
+    outline: 1px solid var(--gold);
+    outline-offset: 4px;
+  }
+
+  .faq-icon-v {
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-icon-v {
+    transform: translateX(-50%) scaleY(0);
+  }
+
   /* Portada: fundido al cambiar de proyecto */
   .stage-fade {
     animation: stage-fade 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
