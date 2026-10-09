@@ -165,14 +165,6 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Architectural grid texture overlay */
-  .arch-grid-bg {
-    background-image: 
-      linear-gradient(rgba(184, 150, 62, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(184, 150, 62, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
   /* Scroll reveal animation classes */
   .reveal {
     opacity: 0;

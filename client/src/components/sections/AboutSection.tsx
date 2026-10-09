@@ -10,7 +10,7 @@ const PORTRAIT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663469050523/g
 
 const credentials = [
   { label: "DRO", desc: "Director Responsable de Obra" },
-  { label: "30+", desc: "Años de experiencia" },
+  { label: "30+", desc: "Years of experience" },
   { label: "BCS", desc: "Baja California Sur" },
 ];
 
