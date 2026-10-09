@@ -21,6 +21,28 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Fuentes de respaldo con las medidas de las web fonts: mientras llegan
+   Cormorant y DM Sans (cargan sin bloquear), el texto ocupa el mismo
+   espacio y no brinca al cambiar (CLS). Medidas calculadas con fontTools
+   sobre los woff2 de Google Fonts vs Georgia/Arial (2026-10-09). */
+@font-face {
+  font-family: 'Cormorant Fallback';
+  src: local('Georgia');
+  size-adjust: 89.46%;
+  ascent-override: 103.29%;
+  descent-override: 32.08%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 104.33%;
+  ascent-override: 95.08%;
+  descent-override: 29.71%;
+  line-gap-override: 0%;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -87,13 +109,13 @@
   
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'DM Sans', 'DM Sans Fallback', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: -0.01em;
@@ -139,7 +161,7 @@
 
   /* Typography utilities */
   .font-display {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
   }
   
   .font-mono-custom {
@@ -247,6 +269,25 @@
     .project-card .overlay {
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, transparent 35%);
     }
+  }
+
+  /* FAQ: acordeón nativo. Sin el triángulo del navegador; el "+" pierde la
+     barra vertical al abrir y queda como "−". */
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary:focus-visible {
+    outline: 1px solid var(--gold);
+    outline-offset: 4px;
+  }
+
+  .faq-icon-v {
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-icon-v {
+    transform: translateX(-50%) scaleY(0);
   }
 
   /* Portada: fundido al cambiar de proyecto */
@@ -362,7 +403,7 @@
 
   /* Stat counter */
   .stat-number {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', 'Cormorant Fallback', serif;
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 300;
     line-height: 1;
@@ -397,7 +438,7 @@
     background: transparent;
     border: 1px solid var(--gold);
     color: var(--gold);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -419,7 +460,7 @@
     background: oklch(1 0 0 / 6%);
     border: 1px solid oklch(1 0 0 / 10%);
     color: oklch(0.85 0.005 80);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
     font-size: 0.8rem;
     font-weight: 400;
     letter-spacing: 0.05em;

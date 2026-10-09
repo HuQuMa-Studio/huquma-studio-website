@@ -95,7 +95,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left column */}
           <div className="reveal">
-            <div className="section-number mb-3">06 — Contact</div>
+            <div className="section-number mb-3">07 — Contact</div>
             <span className="gold-line" />
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5F0E8] leading-tight mb-6">
               Let's Build<br />
