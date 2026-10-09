@@ -22,6 +22,7 @@ import WhatsAppTextLink from "@/components/WhatsAppTextLink";
 import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 import StatusBadge from "@/components/StatusBadge";
 import { GRID_SIZES, imageSrc, imageSrcSet } from "@/lib/image";
+import { photoCaption } from "@/lib/caption";
 import { projectMeta } from "@/types/project";
 
 export default function ProjectDetail() {
@@ -113,6 +114,7 @@ export default function ProjectDetail() {
   ].filter((s) => s.value != null && s.value !== "");
 
   const hasGallery = project.gallery && project.gallery.length > 0;
+  const captions = (project.gallery || []).map((url) => photoCaption(url, project.name));
 
   return (
     <div className="min-h-screen bg-[#111111]">
@@ -245,13 +247,13 @@ export default function ProjectDetail() {
                     key={url + i}
                     onClick={() => setLightboxIndex(i)}
                     className="relative bg-[#1A1A1A] aspect-[4/3] overflow-hidden group"
-                    aria-label={`View photo ${i + 1}`}
+                    aria-label={`View photo ${i + 1}${captions[i] ? `: ${captions[i]}` : ""}`}
                   >
                     <img
                       src={imageSrc(url, 1080)}
                       srcSet={imageSrcSet(url)}
                       sizes={GRID_SIZES}
-                      alt={`${project.name} photo ${i + 1}`}
+                      alt={captions[i] ? `${project.name}: ${captions[i]}` : `${project.name} photo ${i + 1}`}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -304,6 +306,8 @@ export default function ProjectDetail() {
 
       <Lightbox
         images={project.gallery || []}
+        captions={captions}
+        title={project.name}
         openIndex={lightboxIndex}
         onClose={() => setLightboxIndex(null)}
       />
