@@ -75,6 +75,7 @@ export default async function handler(
     "- [Email hugo@huquma.studio](mailto:hugo@huquma.studio): preferred. Include where the land is, lot size, what you want to build or remodel, ideal timeline, and whether you already have plans.",
     "- [WhatsApp +52 613 122 0058](https://wa.me/526131220058)",
     "- Location: Calle Ayuntamiento SN, Col. Centro, C.P. 23880, Loreto, Baja California Sur, México",
+    "- [Google Business Profile](https://maps.app.goo.gl/pKysh7rp6MMPgxNA7): reviews, photos and service areas",
     "",
   ].join("\n");
 
