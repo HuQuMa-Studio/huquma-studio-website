@@ -37,3 +37,8 @@ export const WHATSAPP_NUMBER = "+52 613 122 0058";
 
 export const WHATSAPP_HREF =
   "https://wa.me/526131220058/?text=Hi%20Hugo%2C%20I%20would%20like%20to%20schedule%20a%20call%20with%20you%2C%20please%20let%20me%20know%20when%20are%20you%20available";
+
+// Ficha de Google Business Profile (verificada 2026-10-09). GBP_URL abre la ficha en
+// Maps (enlace corto de "Compartir"); GBP_CID_URL es la forma permanente para JSON-LD.
+export const GBP_URL = "https://maps.app.goo.gl/pKysh7rp6MMPgxNA7";
+export const GBP_CID_URL = "https://www.google.com/maps?cid=17949940045278024296";

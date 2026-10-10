@@ -8,7 +8,7 @@
 
 import { FAQS } from "@/data/faq";
 import type { Guide } from "@/data/guides";
-import { EMAIL, WHATSAPP_NUMBER } from "@/lib/contact";
+import { EMAIL, GBP_CID_URL, WHATSAPP_NUMBER } from "@/lib/contact";
 import type { Project } from "@/types/project";
 
 export const HOME_TITLE = "Custom Home Design & Build in Loreto, Baja California Sur | HuQuMa Studio";
@@ -16,6 +16,7 @@ export const HOME_DESCRIPTION =
   "Custom homes in Loreto, BCS, designed, built and managed by one person: Hugo Quintero, licensed DRO, building in Baja California Sur since 1993.";
 
 const SAME_AS = [
+  GBP_CID_URL,
   "https://web.facebook.com/profile.php?id=100083097284323",
   "https://www.youtube.com/channel/UC9lKXLcmQcWI2kj7-JdQhog",
 ];
@@ -96,7 +97,7 @@ export function homeJsonLd(site: string, projects: Project[]) {
         email: EMAIL,
         telephone: WHATSAPP_NUMBER.replace(/\s+/g, ""),
         address: ADDRESS,
-        hasMap: "https://maps.app.goo.gl/S7WH5v3PYp88xq6j7",
+        hasMap: GBP_CID_URL,
         areaServed: [
           { "@type": "City", name: "Loreto, Baja California Sur" },
           { "@type": "State", name: "Baja California Sur" },

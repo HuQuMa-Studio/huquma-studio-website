@@ -7,13 +7,7 @@
    ============================================================= */
 
 import WhatsAppTextLink from "@/components/WhatsAppTextLink";
-import {
-  EMAIL,
-  PRIMARY_CTA_LABEL,
-  WHATSAPP_HREF,
-  WHATSAPP_NUMBER,
-  emailHref,
-} from "@/lib/contact";
+import { EMAIL, GBP_URL, PRIMARY_CTA_LABEL, WHATSAPP_HREF, WHATSAPP_NUMBER, emailHref } from "@/lib/contact";
 
 const CONTACT_BG = "/images/contact-bg.webp";
 
@@ -169,7 +163,7 @@ export default function ContactSection() {
             <div className="mt-8 p-5 border border-white/5 bg-[#1A1A1A]/50">
               <div className="section-number mb-2">Address</div>
               <a
-                href="https://maps.app.goo.gl/S7WH5v3PYp88xq6j7"
+                href={GBP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 group"
