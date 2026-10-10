@@ -36,10 +36,10 @@ San Javier · Baja California Sur.
 
 ---
 
-## 2. Descripción (máx. 750 caracteres)
+## 2. Descripción (máx. 750 caracteres) — versión final usada en la ficha (745)
 
 ```
-HuQuMa Studio is the design-build practice of Hugo Quintero Maldonado in Loreto, Baja California Sur. One person runs your project from the first sketch to the finished home: architectural and engineering design, permits with the municipality, construction, and licensed DRO (Director Responsable de Obra) sign-off. After the keys, I keep caring for the house while you're away: inspections, maintenance, hurricane prep, utilities and predial. For owners who live abroad, you get photos and video on WhatsApp, email reports against the budget, video calls and a 3D Matterport walkthrough. Building in Baja California Sur since 1993. English and Spanish.
+HuQuMa Studio designs and builds custom homes in Loreto, Baja California Sur, including Loreto Bay and Nopoló. I'm Hugo Quintero Maldonado, a licensed DRO (Director Responsable de Obra), and I run each project myself, from first sketch to finished home: architectural and engineering design, permits with the municipality, construction, remodels and additions. If you live in the US or Canada, you follow the build through photos and video on WhatsApp, email reports against the budget, video calls and a 3D Matterport walkthrough. After the keys, I look after the house while you're away, from maintenance and hurricane prep to utilities and property tax. I've been building in Baja California Sur since 1993, and I work in English and Spanish.
 ```
 
 
@@ -71,6 +71,10 @@ Marca los que apliquen: **Offers online estimates**, **Onsite services**, **Onli
 ---
 
 ## 5. Fotos (lo que más mueve la ficha después de la categoría)
+
+En el alta, "Add a shop front photo" → **Skip** (negocio de área de servicio, sin fachada; además
+Google puede usar la ubicación de la foto para mover el negocio en el mapa). Las fotos se suben
+después de verificar.
 
 Sube **10–15 al inicio** y luego **2–4 por mes**. Solo fotos reales tuyas:
 
