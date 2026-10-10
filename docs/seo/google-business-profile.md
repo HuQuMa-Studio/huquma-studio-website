@@ -72,6 +72,40 @@ Una descripción por servicio (máx. 300 caracteres). Abrir el servicio en "Edit
 | Facilities management | While you're away: inspections, maintenance and repairs, hurricane preparation, and tracking utilities and property tax (predial) for your house in Loreto. |
 | Vacation-rental care | Your Loreto house kept ready between rental guests: inspections, opening and closing, maintenance and repairs. |
 
+### 3b. Servicios de las categorías adicionales
+
+Al agregar cada categoría, Google sugiere sus servicios. Marcar solo los que **no** repiten los de
+"Home builder" y pegar estas descripciones. Si Google no sugiere alguno, agregarlo con "Add more
+services" dentro de esa categoría.
+
+**General contractor**
+
+| Servicio | Descripción |
+|---|---|
+| Commercial construction | Commercial and hospitality projects in Loreto, like the Villa Linda Mar eco-resort: design, permits and construction run by one accountable person. |
+| Kitchen remodelling | New kitchens for existing homes in Loreto: layout, structure, installations and finishes, designed and built by the same person. |
+| Bathroom remodelling | Bathroom remodels in Loreto, from layout and plumbing to tile and fixtures, with progress you can follow from abroad. |
+| Pool construction | Pools designed and built with the house or added to an existing home in Loreto, like the pools at Villa Linda Mar. |
+| Building permits | Permit sets prepared and taken through the municipality of Loreto, with the DRO signature and responsiva included. |
+| Tiny house construction | Compact homes and tiny houses in Baja California Sur, designed for small lots and built with the same care as a full-size home. |
+
+**Construction company**
+
+| Servicio | Descripción |
+|---|---|
+| Residential construction | Custom homes, remodels and additions in Loreto and Baja California Sur, built since 1993 by a licensed DRO who also designs them. |
+| Construction management | Schedule, budget, crews and quality managed on site in Loreto, with WhatsApp updates and email reports against the budget. |
+
+**Property management company**
+
+| Servicio | Descripción |
+|---|---|
+| Residential property management | Care of your Loreto home while you live elsewhere: regular inspections, maintenance and repairs, and utilities and property tax (predial) followed for you. |
+| Vacation rental management | Your Loreto house run as a vacation rental: bookings, cleaning and guest turnover coordinated, and the house kept in shape between stays. |
+| Property maintenance | Maintenance and repairs for homes in Loreto, done or coordinated by a builder who knows how the houses here are built. |
+| Property inspection | Inspections of homes in Loreto, for owners who are away and for buyers before they commit. I tell you what I find. |
+| Hurricane preparation | Your house in Loreto prepared before a hurricane and checked after it, while you're away. |
+
 ## 4. Atributos
 
 Marca los que apliquen: **Offers online estimates**, **Onsite services**, **Online appointments**
