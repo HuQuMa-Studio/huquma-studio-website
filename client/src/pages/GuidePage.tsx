@@ -110,7 +110,7 @@ export default function GuidePage() {
   return (
     <div className="min-h-screen bg-[#111111]">
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <article>
           {/* Encabezado */}
           <header className="container pt-32 md:pt-40 pb-12 md:pb-16">

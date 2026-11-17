@@ -153,7 +153,7 @@ export default function ExperienceSection() {
                 className="timeline-item reveal"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="font-mono-custom text-[0.7rem] text-[#B8963E] tracking-widest mb-1">
+                <div className="font-mono-custom text-xs text-[#B8963E] tracking-widest mb-1">
                   {item.period}
                 </div>
                 <h4 className="font-display text-xl text-[#F5F0E8] mb-2">{item.title}</h4>

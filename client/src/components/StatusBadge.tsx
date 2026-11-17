@@ -18,7 +18,7 @@ const variants: Record<ProjectStatus, string> = {
 export default function StatusBadge({ status }: { status: ProjectStatus }) {
   return (
     <span
-      className={`inline-flex items-center px-2.5 py-1 border text-[10px] tracking-widest uppercase font-mono-custom ${variants[status]}`}
+      className={`inline-flex items-center px-2.5 py-1 border text-[0.65rem] tracking-widest uppercase font-mono-custom ${variants[status]}`}
     >
       {statusLabels[status]}
     </span>

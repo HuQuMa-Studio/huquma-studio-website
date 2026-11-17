@@ -34,7 +34,7 @@ export default function FaqSection() {
             </a>
             <WhatsAppTextLink />
           </div>
-          <Link href="/guides" className="inline-block mt-8 text-sm text-[#D4AF5A] underline-offset-4 hover:underline">
+          <Link href="/guides" className="tap inline-block mt-8 text-sm text-[#D4AF5A] underline-offset-4 hover:underline">
             Longer answers in the guides →
           </Link>
         </div>

@@ -159,7 +159,7 @@ export default function HeroSection() {
               <span aria-live="polite" className="font-display text-xl text-[#F5F0E8]">
                 {project.name}
               </span>
-              <span className="block font-mono-custom text-[11px] tracking-[0.15em] uppercase text-[#8A8A8A] mt-0.5">
+              <span className="block font-mono-custom text-xs tracking-[0.15em] uppercase text-[#8A8A8A] mt-0.5">
                 {[project.location, project.year].filter(Boolean).join(" · ")} · View project →
               </span>
             </Link>
@@ -172,7 +172,7 @@ export default function HeroSection() {
                 >
                   <ChevronLeft size={18} />
                 </button>
-                <span className="font-mono-custom text-[11px] tracking-[0.15em] text-[#8A8A8A] w-12 text-center">
+                <span className="font-mono-custom text-xs tracking-[0.15em] text-[#8A8A8A] w-12 text-center">
                   {(index % count) + 1} / {count}
                 </span>
                 <button

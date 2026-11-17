@@ -96,6 +96,9 @@ export default function Navbar() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
@@ -109,7 +112,7 @@ export default function Navbar() {
             <a
               href="/"
               onClick={handleLogoClick}
-              className="flex items-center gap-3 group"
+              className="tap flex items-center gap-3 group"
             >
               <img
                 src={LOGO_URL}
@@ -122,7 +125,7 @@ export default function Navbar() {
                 <div className="text-[#F5F0E8] font-display text-lg leading-none tracking-wide">
                   HuQuMa Studio
                 </div>
-                <div className="text-[10px] tracking-[0.2em] text-[#B8963E] uppercase font-mono-custom mt-0.5">
+                <div className="text-[0.65rem] tracking-[0.2em] text-[#B8963E] uppercase font-mono-custom mt-0.5">
                   Design + Build
                 </div>
               </div>
@@ -134,7 +137,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className={`nav-link text-sm font-medium tracking-wide transition-colors ${
+                  className={`nav-link tap text-sm font-medium tracking-wide transition-colors ${
                     activeSection === link.href.replace("#", "")
                       ? "text-[#D4AF5A] active"
                       : "text-[#8A8A8A] hover:text-[#F5F0E8]"
@@ -149,7 +152,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <a
                 href={emailHref()}
-                className="hidden lg:inline-flex btn-gold text-xs py-2 px-4"
+                className="hidden lg:inline-flex btn-gold tap text-xs py-2 px-4"
               >
                 {PRIMARY_CTA_LABEL} →
               </a>
@@ -180,7 +183,7 @@ export default function Navbar() {
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="font-display text-3xl text-[#F5F0E8] hover:text-[#D4AF5A] transition-colors"
+              className="tap font-display text-3xl text-[#F5F0E8] hover:text-[#D4AF5A] transition-colors"
               style={{ transitionDelay: `${i * 50}ms` }}
             >
               {link.label}

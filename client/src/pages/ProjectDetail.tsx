@@ -132,12 +132,12 @@ export default function ProjectDetail() {
     <div className="min-h-screen bg-[#111111]">
       <Navbar />
 
-      <main className="pt-20 md:pt-24">
+      <main id="main-content" tabIndex={-1} className="pt-20 md:pt-24 outline-none">
         {/* Breadcrumb */}
         <div className="container py-2">
           <nav
             aria-label="Breadcrumb"
-            className="text-[10px] tracking-[0.2em] uppercase font-mono-custom text-[#828282] flex flex-wrap items-center gap-2"
+            className="text-[0.65rem] tracking-[0.2em] uppercase font-mono-custom text-[#828282] flex flex-wrap items-center gap-2"
           >
             <button
               onClick={() => setLocation("/")}
@@ -212,7 +212,7 @@ export default function ProjectDetail() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] px-3 py-1 border border-[rgb(160,160,160)] text-[rgb(160,160,160)] tracking-wider uppercase font-mono-custom"
+                        className="text-[0.65rem] px-3 py-1 border border-[rgb(160,160,160)] text-[rgb(160,160,160)] tracking-wider uppercase font-mono-custom"
                       >
                         {tag}
                       </span>
