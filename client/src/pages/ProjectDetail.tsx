@@ -141,14 +141,14 @@ export default function ProjectDetail() {
           >
             <button
               onClick={() => setLocation("/")}
-              className="py-3 hover:text-[#B8963E] transition-colors"
+              className="tap py-3 hover:text-[#B8963E] transition-colors"
             >
               HuQuMa Studio
             </button>
             <span className="text-[#7A7A7A]">/</span>
             <button
               onClick={goToPortfolio}
-              className="py-3 hover:text-[#B8963E] transition-colors"
+              className="tap py-3 hover:text-[#B8963E] transition-colors"
             >
               Portfolio
             </button>
@@ -306,7 +306,7 @@ export default function ProjectDetail() {
             </div>
             <button
               onClick={goToPortfolio}
-              className="mt-12 py-2 text-xs tracking-[0.2em] uppercase font-mono-custom text-[#8A8A8A] hover:text-[#B8963E] transition-colors"
+              className="tap mt-12 py-2 text-xs tracking-[0.2em] uppercase font-mono-custom text-[#8A8A8A] hover:text-[#B8963E] transition-colors"
             >
               ← Back to Portfolio
             </button>
