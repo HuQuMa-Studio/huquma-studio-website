@@ -58,7 +58,7 @@ export default function PortfolioSection() {
               key={tab.value}
               onClick={() => setActiveTab(tab.value)}
               aria-pressed={activeTab === tab.value}
-              className={`px-5 py-3 text-xs tracking-widest uppercase font-mono-custom transition-all duration-200 ${
+              className={`tap px-5 py-3 text-xs tracking-widest uppercase font-mono-custom transition-all duration-200 ${
                 activeTab === tab.value
                   ? "bg-[#B8963E] text-[#111111]"
                   : "bg-transparent border border-white/10 text-[#828282] hover:border-[#B8963E]/50 hover:text-[#B8963E]"

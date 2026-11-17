@@ -304,6 +304,39 @@
     }
   }
 
+  /* Zona táctil mínima de 44px sin cambiar el tamaño visual: el pseudo-elemento
+     crece solo en el eje donde el elemento mide menos de 44px. */
+  .tap {
+    position: relative;
+  }
+
+  .tap::before {
+    content: '';
+    position: absolute;
+    inset: min(0px, calc((100% - 44px) / 2));
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    padding: 0.85rem 1.25rem;
+    background: var(--gold);
+    color: #111111;
+    font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus {
+    transform: none;
+  }
+
   /* Nav link underline animation */
   .nav-link {
     position: relative;

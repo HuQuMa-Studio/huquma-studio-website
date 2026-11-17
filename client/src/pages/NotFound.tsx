@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen bg-[#111111] flex flex-col">
       <Navbar />
-      <main className="flex-1 flex items-center">
+      <main id="main-content" tabIndex={-1} className="flex-1 flex items-center outline-none">
         <div className="container py-40">
           <div className="section-number mb-3">404</div>
           <span className="gold-line" />

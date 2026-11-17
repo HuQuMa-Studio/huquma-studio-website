@@ -179,7 +179,7 @@ export default function ServicesSection() {
                 )}
                 <a
                   href={emailHref(service.name)}
-                  className="inline-block mt-5 text-sm text-[#D4AF5A] underline-offset-4 hover:underline focus-visible:underline"
+                  className="tap inline-block mt-5 text-sm text-[#D4AF5A] underline-offset-4 hover:underline focus-visible:underline"
                 >
                   {service.ask} →
                 </a>

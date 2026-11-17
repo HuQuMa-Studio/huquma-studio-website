@@ -126,7 +126,7 @@ export default function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="w-10 h-10 flex items-center justify-center border border-white/10 text-[#828282] hover:border-[#B8963E] hover:text-[#B8963E] transition-all duration-200"
+                    className="tap w-10 h-10 flex items-center justify-center border border-white/10 text-[#828282] hover:border-[#B8963E] hover:text-[#B8963E] transition-all duration-200"
                   >
                     {social.icon}
                   </a>

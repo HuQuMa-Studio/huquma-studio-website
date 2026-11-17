@@ -28,7 +28,7 @@ export default function GuidesIndex() {
   return (
     <div className="min-h-screen bg-[#111111] flex flex-col">
       <Navbar />
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
         <header className="container pt-32 md:pt-40 pb-12 md:pb-16">
           <div className="section-number mb-3">Guides</div>
           <span className="gold-line" />

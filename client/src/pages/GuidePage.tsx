@@ -110,14 +110,14 @@ export default function GuidePage() {
   return (
     <div className="min-h-screen bg-[#111111]">
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <article>
           {/* Encabezado */}
           <header className="container pt-32 md:pt-40 pb-12 md:pb-16">
             <nav aria-label="Breadcrumb" className="font-mono-custom text-[0.65rem] tracking-[0.2em] uppercase text-[#8A8A8A] mb-6">
-              <Link href="/" className="hover:text-[#D4AF5A]">Home</Link>
+              <Link href="/" className="tap hover:text-[#D4AF5A]">Home</Link>
               <span aria-hidden="true" className="mx-2 text-[#4A4A4A]">/</span>
-              <Link href="/guides" className="hover:text-[#D4AF5A]">Guides</Link>
+              <Link href="/guides" className="tap hover:text-[#D4AF5A]">Guides</Link>
             </nav>
             <span className="gold-line" />
             <h1 className="font-display text-4xl md:text-6xl text-[#F5F0E8] leading-[1.05] max-w-4xl">
@@ -141,7 +141,7 @@ export default function GuidePage() {
                 <ol className="space-y-3 border-l border-white/[0.08] pl-5">
                   {guide.sections.map((s) => (
                     <li key={s.heading}>
-                      <a href={`#${anchorId(s.heading)}`} className="text-sm text-[#8A8A8A] hover:text-[#D4AF5A] leading-snug block">
+                      <a href={`#${anchorId(s.heading)}`} className="text-sm text-[#8A8A8A] hover:text-[#D4AF5A] leading-snug block py-3.5">
                         {s.heading}
                       </a>
                     </li>
