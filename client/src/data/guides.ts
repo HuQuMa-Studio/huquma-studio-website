@@ -204,6 +204,139 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "building-and-remodeling-in-loreto-bay",
+    title: "Building and remodeling in Loreto Bay: what to know first",
+    description:
+      "Loreto Bay, Baja California Sur: what the community is today, how its design rules and HOA change a build or remodel, and what to check before you start.",
+    dek: "I was the DRO of dozens of homes in the original Loreto Bay development and I've designed and built houses next door in Nopoló. This is what I'd want an owner to know before touching a house here.",
+    published: "2026-11-17",
+    updated: "2026-11-17",
+    sections: [
+      {
+        heading: "My experience here",
+        blocks: [
+          {
+            type: "p",
+            text: "From 2006 to 2008 I was the DRO (the licensed professional who signs a project and answers for it) of dozens of homes in the original Loreto Bay development. I have also designed and built several houses in the original FONATUR subdivision in Nopoló, which borders Loreto Bay. That is the experience behind this guide.",
+          },
+        ],
+      },
+      {
+        heading: "What Loreto Bay is today",
+        blocks: [
+          {
+            type: "p",
+            text: "Loreto Bay, originally called The Villages of Loreto Bay, is a walkable seaside community of several hundred homes, a residential and resort neighborhood between the Sea of Cortez and the Sierra de la Giganta. It started in 2003 as a much larger master plan and lost its original developer in the 2008–2009 financial crisis, with only part of it built.",
+          },
+          {
+            type: "p",
+            text: "Today it runs as a quiet community managed by its own homeowners' association (HOA). Most owners are from the US and Canada, and many come only for the winter. It is in Nopoló, the tourist corridor FONATUR planned between the town of Loreto and Puerto Escondido, about a 15-minute drive south of town and close to the airport. Houses are grouped around plazas, canals and pedestrian lanes (paseos) that you cover on foot, by bike or in an electric golf cart.",
+          },
+          {
+            type: "p",
+            text: "Many listings in Nopoló are advertised as \"Loreto Bay\". Before you buy, confirm exactly where a property is and what rights of access it really has.",
+          },
+        ],
+      },
+      {
+        heading: "How building here differs",
+        blocks: [
+          {
+            type: "p",
+            text: "Anywhere in Loreto you need the municipal permit and a DRO. Inside Loreto Bay you also answer to a private regime: the community's master rules, the sub-regimes of each condominium area, and its Design Guidelines, which the HOA enforces.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Approval comes first. Before the municipal permit, any new build, major remodel or visible exterior change needs the written approval of the HOA's Design Review Committee. That includes changes as small as paint color, doors, windows, pergolas, light fixtures or house-number plaques.",
+              "The layout is dense and walkable. Houses sit on their lot lines along narrow pedestrian lanes, and life turns toward private courtyards and rooftop terraces. The guidelines limit how much of the lot can be built, how tall, and what can overlook a neighbor's patio.",
+              "Materials and finishes are set. The guidelines call for a traditional Mexican colonial look: plaster with rounded edges, clay tile on pitched roofs, wood or wood-look exterior doors, and colors from the community's approved palette.",
+              "Thick, shaded walls. The community was designed for the climate, with heavy exterior walls, recessed doors and windows, and natural ventilation toward the courtyards. The first houses used compressed-earth walls; later ones used an insulated concrete wall system.",
+            ],
+          },
+          {
+            type: "note",
+            text: "The Design Guidelines and community rules are updated by the HOA. I work from the current version for each project, and you should too.",
+          },
+        ],
+      },
+      {
+        heading: "The site rules contractors must follow",
+        blocks: [
+          {
+            type: "p",
+            text: "Construction inside the community runs under rules that most contractors in Loreto aren't used to:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Fixed work hours, no work on Sundays or holidays, and workers carrying ID from their company.",
+              "Doors, windows, cabinets and countertops can't be built or cut on site. They are made elsewhere and arrive ready to install.",
+              "The lanes need protection when materials are unloaded, and trucks have to be covered. If a supplier spills cement or damages the paving, the administration can bar your contractor from the community and stop your work until it's repaired.",
+              "A building stopped at the rough stage can be ordered to be finished or closed up on the outside.",
+            ],
+          },
+          {
+            type: "p",
+            text: "A contractor who doesn't know these rules is a common reason for a remodel to stall here.",
+          },
+        ],
+      },
+      {
+        heading: "What surprises buyers and owners",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "The HOA covers facades. In many communities it only looks after common areas. Here it also reviews your house's exterior.",
+              "There is no active master developer. After the original developer's bankruptcy, nobody is building the pending phases. Vacant lots and unfinished buildings nearby belong to third parties with no announced plans.",
+              "The hotel and golf course are separate. They operate independently from the HOA, and access to them isn't included in your HOA fees. Ask exactly what rights come with a property.",
+              "Distance costs money. Loreto is a small town without large building-supply stores or a wide range of finishes and appliances. Most materials arrive by freight from La Paz or the mainland, and specialized trades often have to travel in.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Mistakes I've seen",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Buying a house to expand it or to rent it to large groups. Check the occupancy rules before you plan around rentals.",
+              "Hiring a builder who hasn't read the community's site rules.",
+              "Assuming Nopoló and Loreto Bay are the same thing, and assuming the amenities come with the address.",
+              "Planning a remodel from abroad without someone local on site. In high season, good contractors are scarce, and running a remodel remotely without a supervisor rarely works.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Before you remodel or expand",
+        blocks: [
+          {
+            type: "ol",
+            items: [
+              "Get the current Design Guidelines and your area's rules from the HOA.",
+              "Have the design reviewed against them before drawing details: lot coverage, height, privacy, materials and colors.",
+              "Submit it to the Design Review Committee and wait for written approval.",
+              "Only then take it to the municipality for the permit, with a DRO's signature. The [guide to permits and the DRO](/guides/building-permits-and-dro-in-loreto) lists what the municipality asks for.",
+              "Choose a contractor who accepts the site rules in writing and has a local supervisor for the work.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How I can help",
+        blocks: [
+          {
+            type: "p",
+            text: "The services that fit best here, in Loreto Bay and in the rest of Nopoló, are design and construction, and acting as your DRO. If you own or are considering a house here, send me the address and what you want to change. I'll tell you what the community's rules mean for it. If you live abroad, the [guide to building from abroad](/guides/building-a-home-in-loreto-from-abroad) explains how a project runs when you aren't here.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function guideBySlug(slug: string): Guide | undefined {
