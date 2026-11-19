@@ -15,14 +15,16 @@ const steps = [
     stage: "Design",
     title: "Plans and permits",
     body: [
-      "I design, engineer, and produce architectural, structural, electrical, plumbing and HVAC drawings, and manage permits. As DRO, I review, sign, and stamp plans, validate structural design, conduct site checks, log progress, enforce codes, and sign off on completion, assuming all liabilities.",
+      "I design and engineer the full drawing set (architectural, structural, electrical, plumbing and HVAC) and manage the permits.",
+      "As DRO, I review, sign and stamp the plans, check the site, log progress, enforce codes and sign off on completion, assuming all liabilities.",
     ],
   },
   {
     stage: "Build",
     title: "Construction you can follow",
     body: [
-      "Using the design-build approach, I ensure you get transparency, faster delivery, accurate costs, and full control from design through construction. Being your single point of contract, you avoid acting as a middleman between architects, contractors, and subcontractors. The result: smoother execution, better communication, a shorter timeline, and greater value.",
+      "Design-build gives you a single point of contact, so you never play middleman between architects, contractors and subcontractors. The result is clear costs, better communication and a shorter timeline.",
+      "You follow it from home: photos and video on WhatsApp, email reports of spend against budget, video calls at key milestones, and a 3D Matterport walkthrough of the house.",
     ],
   },
   {
