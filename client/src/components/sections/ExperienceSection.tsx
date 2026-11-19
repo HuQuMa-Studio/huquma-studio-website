@@ -2,11 +2,9 @@
    ExperienceSection — HuQuMa Studio
    Design: Estadísticas animadas + timeline de trayectoria
    - Fondo con imagen de Loreto
-   - Contadores animados de estadísticas clave
+   - Estadísticas clave (cifras fijas)
    - Timeline de hitos profesionales
    ============================================================= */
-
-import { useEffect, useRef, useState } from "react";
 
 const LORETO_BG = "/images/experience-bg.webp";
 
@@ -50,60 +48,20 @@ const timeline = [
   },
 ];
 
+// Cifras fijas (sin cuenta animada): un contador que arranca en 0 puede ser
+// leído a medias por buscadores, agentes de IA y capturas ("3+", "199").
 function AnimatedCounter({ target, suffix, text }: { target: number; suffix: string; text?: string }) {
-  // Arranca en el valor final para que el HTML pre-renderizado (lo que leen
-  // buscadores y agentes sin JS) diga el número real; en el navegador se
-  // reinicia a 0 al montar y cuenta al entrar en pantalla.
-  const [count, setCount] = useState(target);
-  const ref = useRef<HTMLDivElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    if (!started.current) setCount(0);
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1800;
-          const steps = 60;
-          const increment = target / steps;
-          let current = 0;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              setCount(target);
-              clearInterval(timer);
-            } else {
-              setCount(Math.floor(current));
-            }
-          }, duration / steps);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target]);
-
   if (text) {
-    return (
-      <div ref={ref} className="stat-number stat-number--word">
-        {text}
-      </div>
-    );
+    return <div className="stat-number stat-number--word">{text}</div>;
   }
 
   if (target === 1) {
-    return (
-      <div ref={ref} className="stat-number stat-number--word">
-        Loreto
-      </div>
-    );
+    return <div className="stat-number stat-number--word">Loreto</div>;
   }
 
   return (
-    <div ref={ref} className="stat-number">
-      {count}
+    <div className="stat-number">
+      {target}
       {suffix}
     </div>
   );
