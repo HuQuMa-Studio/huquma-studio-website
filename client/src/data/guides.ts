@@ -496,10 +496,10 @@ export const GUIDES: Guide[] = [
     slug: "design-build-process-in-loreto",
     title: "The design-build process: one contract for your design and your build",
     description:
-      "How design-build works for a custom home in Loreto, BCS: one point of contact, a budget before work starts, overlapping phases, and how it compares with the traditional way.",
+      "How design-build works for a custom home in Loreto, BCS: one contract, a budget before work starts, how a cost-plus contract runs, and how it compares with the traditional way.",
     dek: "Design-build means the person who designs your house is the person who builds it. Here is how that works step by step, and why I think it gives you a smoother project and more value for your budget.",
     published: "2026-11-18",
-    updated: "2026-11-18",
+    updated: "2026-11-19",
     sections: [
       {
         heading: "What design-build means",
@@ -550,11 +550,52 @@ export const GUIDES: Guide[] = [
         blocks: [
           {
             type: "p",
-            text: "I begin every project with a detailed budget and a design plan. Because one contract covers design and construction, I can give you a complete cost estimate up front instead of a design you later find out you can't afford.",
+            text: "I begin every project with a detailed budget and a design plan. Because one contract covers design and construction, I can give you a complete cost projection up front instead of a design you later find out you can't afford.",
           },
           {
             type: "p",
-            text: "Before any work begins on your house, you get a detailed payment plan that lists each service, so there are no hidden costs. What the house will cost depends on its size, the finishes, the lot and extras like a pool: send me those details and I'll give you a first estimate.",
+            text: "Before any work begins on your house, you get a detailed payment plan that lists each service, so nothing is hidden. What the house will cost depends on its size, the finishes, the lot and extras like a pool: send me those details and I'll give you a first estimate.",
+          },
+        ],
+      },
+      {
+        heading: "Cost-plus contracts for high-end homes",
+        blocks: [
+          {
+            type: "p",
+            text: "For high-end custom homes, where the design keeps evolving as the house takes shape, I use a cost-plus design-build contract (costo reembolsable). Instead of fixing one final price on day one, you pay the real, eligible costs of the work plus an agreed fee for the builder. The final cost can therefore differ from the first projection, and the contract is built around keeping that visible and under your control.",
+          },
+          {
+            type: "ol",
+            items: [
+              "Project definition. You set your goals, needs and design criteria, and we agree on the scope and on how decisions, approvals and changes will be handled.",
+              "Design and documentation. I coordinate the design professionals to develop the plans and specifications. You review and approve them before construction starts, and the permits are handled in parallel.",
+              "Estimate and planning. I prepare a cost projection and a work schedule. The projection is the reference for the build, not necessarily a maximum price.",
+              "Construction, administration and payments. I carry out the work according to the approved documents and coordinate the crews, consultants, suppliers and subcontractors. Payment requests cover the costs incurred, with the supporting documents, and the agreed fee is applied.",
+              "Changes and adjustments. A change in scope, design, cost or schedule is written down and approved through the agreed procedure before it's carried out. If costs are heading above the projection, we review the budget and the schedule formally.",
+              "Inspection, handover and warranty. Near completion we inspect the work and list what is pending or needs correction, and agree how it will be completed. The contract can include a payment retention, a final payment and a warranty period.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What to settle in a cost-plus contract",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Cap or estimate: whether there is a maximum price or guarantee, or only a projection.",
+              "Reimbursable costs: which expenses can be charged, how they are documented and which are excluded.",
+              "The builder's fee: what it is calculated on and whether it applies to all costs or only some.",
+              "Financial controls: periodic reports, access to receipts, prior approval of significant expenses and early warning of possible overruns.",
+              "Your approvals: deadlines for reviewing plans, choosing materials and answering requests, since delays here move the schedule.",
+              "Change orders: each one states what changes and its expected effect on cost and schedule.",
+              "Risks and remedies: delays, safety, permits, warranties, insurance, suspension or termination, and how disputes are resolved.",
+            ],
+          },
+          {
+            type: "note",
+            text: "This is a general explanation, not legal advice. Have a lawyer or a construction professional review any contract before you sign it, mine included.",
           },
         ],
       },
@@ -575,7 +616,7 @@ export const GUIDES: Guide[] = [
             items: [
               "Contract: one for design and construction, against separate ones for the architect and each contractor.",
               "Who you talk to: one person, against everyone separately.",
-              "Budget: estimated up front with the design, against a design that may need to be redone to fit the cost.",
+              "Budget: projected up front with the design and tracked in reports, against a design that may need to be redone to fit the cost.",
               "Timeline: overlapping stages, against one stage waiting for the next.",
             ],
           },
