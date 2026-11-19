@@ -337,6 +337,117 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "buying-land-in-loreto-what-to-check",
+    title: "Buying land in Loreto: what I check before you sign",
+    description:
+      "Buying land in Loreto, Baja California Sur: the site analysis I run, the documents I gather and the local risks to check, from ejido land to drainage.",
+    dek: "Land that looks like a bargain can carry costs you can't see from the listing. This is how I analyze a lot before a client commits, and what I've learned to check in Loreto in particular.",
+    published: "2026-11-18",
+    updated: "2026-11-18",
+    sections: [
+      {
+        heading: "How I review a lot",
+        blocks: [
+          {
+            type: "p",
+            text: "The depth of the review depends on the land. A lot in an urbanized area needs a lighter check than rustic land with no services, where I run a full site analysis: a study of the site's current conditions and how they may change, from the lot itself out to its surroundings.",
+          },
+          {
+            type: "p",
+            text: "It looks at two kinds of information. Objective data exists whether or not anyone is there: boundaries, topography, soil, climate, utilities, hazards. Subjective data is what people experience on the site: views, privacy, noise, smells, how you get in and out.",
+          },
+        ],
+      },
+      {
+        heading: "My five steps",
+        blocks: [
+          {
+            type: "ol",
+            items: [
+              "Document review. Before going to the site I collect whatever already exists, from public sources or from you: surveys and aerial photos, the title and any easements or liens, zoning and development plans (including FONATUR or HOA rules where they apply), utility maps, soil or geology reports, and climate data.",
+              "Site visit. I go to the land to confirm, correct and add to what the documents say, with a camera or phone, a drone, a tape or laser measure, and the documents in hand.",
+              "Putting the data together. I mark findings on plans and maps, with notes, sketches and photos, and list the key points.",
+              "Analysis. I work out what each finding means for the design: where the house can sit, how it faces the sun and wind, access, views, light and privacy.",
+              "Presentation. The result can be a simple annotated site plan or a full report, depending on the project.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What I look for on the lot",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Boundaries and dimensions, topography and any slope or low spots.",
+              "Soil and geology, existing vegetation and what should stay.",
+              "Sun path, wind direction and the rain history of the area.",
+              "Water, sewer, power and communications: what exists at the lot line and what doesn't.",
+              "Hazards: flooding, drainage, storms and hurricanes, abandoned or unfinished buildings nearby.",
+              "Neighbors and context: heights, uses, style, noise, views in and out.",
+              "Access for people and vehicles.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Loreto-specific things to check",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Rain and drainage. Loreto has no storm-drain network, so in hurricane season or heavy rain some parts of town flood. In those areas the lot has to be raised.",
+              "Zoning and ecological plans. Loreto has several urban and ecological planning instruments. Check that they allow the density and height you plan to build.",
+              "Beachfront lots. Check whether the property has the ZOFEMAT concession next to it.",
+              "Cleared rustic land. Find out whether the land was already cleared, and if so, whether it went through environmental impact review and land-use change. Clearing without the required permits can bring federal fines.",
+              "Ejido land. Find out whether it has been properly released to become private property or is still restricted ejido land. This is a question for a lawyer.",
+              "Subdivided ejido lots. They are being offered in Loreto, but don't assume the municipality or the government will provide services. These subdivisions weren't done under the subdivision laws, so who will bring power, water, sewer and paving is unsettled. You can build on them, but you'll need permits without services, plus environmental impact review and a change from forest to urban land use.",
+              "FONATUR lots. They look urbanized, but in many the infrastructure has deteriorated and needs repair. Sometimes water and sewer connection fees are still owed. Read the purchase contract carefully, including the fine print on lots FONATUR has already sold to third parties. A low price doesn't mean no extra costs.",
+              "Next to Loreto Bay. FONATUR used to review and pre-approve plans in the area around Loreto Bay. Ask the municipality which restrictions apply there now.",
+              "Inside Loreto Bay. The design guidelines, density limits and condominium rules are far more restrictive than anywhere else. See the [guide to building and remodeling in Loreto Bay](/guides/building-and-remodeling-in-loreto-bay).",
+              "Downtown, the Malecón area and Costa Loreto. They are already urbanized, so they are a different case from rustic land.",
+            ],
+          },
+          {
+            type: "note",
+            text: "I'm a builder and a DRO, not a lawyer. Title, ejido status, trusts and taxes belong with a notary or a lawyer.",
+          },
+        ],
+      },
+      {
+        heading: "Before you put down a deposit",
+        blocks: [
+          {
+            type: "p",
+            text: "If you're still negotiating directly with the owner, bring in a registered real estate professional. Otherwise you can pay a deposit and then find unpaid property tax, water or other debts with the municipality, or find that the costs of buying the property weren't in your budget.",
+          },
+          {
+            type: "p",
+            text: "I can help with some first steps, such as certificates of no debt and of no liens, and recommend registered real estate professionals and appraisers.",
+          },
+        ],
+      },
+      {
+        heading: "If the land already has a building",
+        blocks: [
+          {
+            type: "p",
+            text: "I can do a preliminary inspection of the structure, the installations, the waterproofing and how the house works overall, and tell you whether to negotiate the price for the repairs it needs. If you plan to demolish and build new, I can give you my opinion on that too.",
+          },
+        ],
+      },
+      {
+        heading: "Send me the lot",
+        blocks: [
+          {
+            type: "p",
+            text: "If you're looking at a lot, send me its location and whatever documents you have before you sign anything. I'll tell you what I'd check and what could change your plans. When you're ready to build, the [guide to permits and the DRO](/guides/building-permits-and-dro-in-loreto) and the [guide to building from abroad](/guides/building-a-home-in-loreto-from-abroad) cover the next steps.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function guideBySlug(slug: string): Guide | undefined {
