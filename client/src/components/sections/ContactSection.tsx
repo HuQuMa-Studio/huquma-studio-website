@@ -71,7 +71,7 @@ const socialLinks = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-14 sm:py-16 md:py-20 overflow-hidden">
+    <section id="contact" className="relative pt-14 sm:pt-16 md:pt-20 pb-8 sm:pb-10 md:pb-12 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -86,7 +86,7 @@ export default function ContactSection() {
       </div>
 
       <div className="relative z-10 container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
           {/* Left column */}
           <div className="reveal">
             <div className="section-number mb-3">07 — Contact</div>
@@ -95,14 +95,14 @@ export default function ContactSection() {
               Let's Build<br />
               <span className="text-[#B8963E] italic">Together</span>
             </h2>
-            <p className="text-[#828282] text-sm leading-relaxed mb-10 max-w-sm">
+            <p className="text-[#828282] text-sm leading-relaxed mb-6 lg:mb-10 max-w-sm">
               Ready to start your project? Send me an email with where your land
               is and what you want to build, renovate, or add. It comes straight
               to me. Based in Loreto, serving all of Baja California Sur.
             </p>
 
             {/* Primary CTA */}
-            <div className="flex flex-col items-start gap-2 mb-10">
+            <div className="flex flex-col items-start gap-2 mb-6 lg:mb-10">
               <a
                 href={emailHref()}
                 className="btn-gold inline-flex items-center gap-3 text-sm py-3 px-6"
@@ -144,7 +144,7 @@ export default function ContactSection() {
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
-                  className="flex items-start gap-4 py-6 group"
+                  className="flex items-start gap-4 py-3 lg:py-6 group"
                 >
                   <div className="w-10 h-10 flex items-center justify-center border border-white/8 text-[#B8963E] group-hover:border-[#B8963E] transition-colors flex-shrink-0">
                     {item.icon}
@@ -160,7 +160,7 @@ export default function ContactSection() {
             </div>
 
             {/* Address */}
-            <div className="mt-8 p-5 border border-white/5 bg-[#1A1A1A]/50">
+            <div className="mt-5 lg:mt-8 p-5 border border-white/5 bg-[#1A1A1A]/50">
               <div className="section-number mb-2">Address</div>
               <a
                 href={GBP_URL}
