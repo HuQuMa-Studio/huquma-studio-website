@@ -10,9 +10,9 @@ import { useEffect, useRef, useState } from "react";
 
 const LORETO_BG = "/images/experience-bg.webp";
 
-const stats = [
+const stats: { value: number; suffix: string; label: string; text?: string }[] = [
   { value: 30, suffix: "+", label: "Years of Experience" },
-  { value: 100, suffix: "+", label: "Projects Completed" },
+  { value: 0, suffix: "", text: "References", label: "& Testimonials on Request" },
   { value: 1993, suffix: "", label: "In Practice Since" },
   { value: 1, suffix: "", label: "Loreto, BCS" },
 ];
@@ -50,7 +50,7 @@ const timeline = [
   },
 ];
 
-function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
+function AnimatedCounter({ target, suffix, text }: { target: number; suffix: string; text?: string }) {
   // Arranca en el valor final para que el HTML pre-renderizado (lo que leen
   // buscadores y agentes sin JS) diga el número real; en el navegador se
   // reinicia a 0 al montar y cuenta al entrar en pantalla.
@@ -85,9 +85,17 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
     return () => observer.disconnect();
   }, [target]);
 
+  if (text) {
+    return (
+      <div ref={ref} className="stat-number stat-number--word">
+        {text}
+      </div>
+    );
+  }
+
   if (target === 1) {
     return (
-      <div ref={ref} className="stat-number">
+      <div ref={ref} className="stat-number stat-number--word">
         Loreto
       </div>
     );
@@ -132,7 +140,7 @@ export default function ExperienceSection() {
           <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/8">
             {stats.map((stat) => (
               <div key={stat.label} className="p-8 md:p-12 text-center">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} text={stat.text} />
                 <div className="text-[#828282] text-xs tracking-widest uppercase mt-2 font-mono-custom">
                   {stat.label}
                 </div>
