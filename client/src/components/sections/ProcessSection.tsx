@@ -15,16 +15,14 @@ const steps = [
     stage: "Design",
     title: "Plans and permits",
     body: [
-      "I draw the plans, elevations and structural drawings, then take them through the permit process with the municipality myself.",
-      "As a licensed DRO (Director Responsable de Obra) I also sign the project, so you don't hire a separate director of works.",
+      "I design, engineer, and produce architectural, structural, electrical, plumbing and HVAC drawings, and manage permits. As DRO, I review, sign, and stamp plans, validate structural design, conduct site checks, log progress, enforce codes, and sign off on completion, assuming all liabilities.",
     ],
   },
   {
     stage: "Build",
     title: "Construction you can follow",
     body: [
-      "You get photos and video on WhatsApp as the work moves, email reports with what was spent against the budget, and video calls at the key milestones.",
-      "I also capture the house as a 3D digital twin with Matterport, so you can walk through it from your screen.",
+      "Using the design-build approach, I ensure you get transparency, faster delivery, accurate costs, and full control from design through construction. Being your single point of contract, you avoid acting as a middleman between architects, contractors, and subcontractors. The result: smoother execution, better communication, a shorter timeline, and greater value.",
     ],
   },
   {
