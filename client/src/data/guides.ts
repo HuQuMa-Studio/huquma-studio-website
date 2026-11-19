@@ -382,7 +382,7 @@ export const GUIDES: Guide[] = [
             items: [
               "Boundaries and dimensions, topography and any slope or low spots.",
               "Soil and geology, existing vegetation and what should stay.",
-              "Sun path, wind direction and the rain history of the area.",
+              "Sun path, wind direction and the rain and drainage history of the area.",
               "Water, sewer, power and communications: what exists at the lot line and what doesn't.",
               "Hazards: flooding, drainage, storms and hurricanes, abandoned or unfinished buildings nearby.",
               "Neighbors and context: heights, uses, style, noise, views in and out.",
@@ -406,7 +406,7 @@ export const GUIDES: Guide[] = [
               "FONATUR lots. They look urbanized, but in many the infrastructure has deteriorated and needs repair. Sometimes water and sewer connection fees are still owed. Read the purchase contract carefully, including the fine print on lots FONATUR has already sold to third parties. A low price doesn't mean no extra costs.",
               "Next to Loreto Bay. FONATUR used to review and pre-approve plans in the area around Loreto Bay. Ask the municipality which restrictions apply there now.",
               "Inside Loreto Bay. The design guidelines, density limits and condominium rules are far more restrictive than anywhere else. See the [guide to building and remodeling in Loreto Bay](/guides/building-and-remodeling-in-loreto-bay).",
-              "Downtown, the Malecón area and Costa Loreto. They are already urbanized, so they are a different case from rustic land.",
+              "Downtown, the Malecón area and Colonia El Jaral. They are already urbanized, so they are a different case from rustic land.",
             ],
           },
           {
