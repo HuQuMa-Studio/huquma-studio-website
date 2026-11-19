@@ -16,6 +16,11 @@ export const FAQS: Faq[] = [
       "Yes. You can hire me for the design only, for the construction only, to oversee a build run by another contractor, or to look after a finished house. Or for the whole house, with one person answering for all of it.",
   },
   {
+    question: "What is design-build, and why does it matter?",
+    answer:
+      "Design-build means one contract and one person for the design and the construction. You don't act as the middleman between the architect, the contractor and the subcontractors, and the budget is set up front with the design. The result is a smoother project, better communication and more value for your budget.",
+  },
+  {
     question: "Do you handle the building permits in Loreto?",
     answer:
       "Yes. I prepare the permit set and take it through the municipality of Loreto myself. As a licensed DRO, I also sign the project.",

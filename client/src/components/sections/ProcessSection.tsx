@@ -89,9 +89,14 @@ export default function ProcessSection() {
             {PRIMARY_CTA_LABEL}
           </a>
           <WhatsAppTextLink />
-          <Link href="/guides/building-a-home-in-loreto-from-abroad" className="tap text-sm text-[#D4AF5A] underline-offset-4 hover:underline sm:ml-auto">
-            Read the full guide to building from abroad →
-          </Link>
+          <div className="flex flex-wrap gap-x-6 gap-y-1 sm:ml-auto">
+            <Link href="/guides/design-build-process-in-loreto" className="tap text-sm text-[#D4AF5A] underline-offset-4 hover:underline">
+              How design-build works →
+            </Link>
+            <Link href="/guides/building-a-home-in-loreto-from-abroad" className="tap text-sm text-[#D4AF5A] underline-offset-4 hover:underline">
+              Guide to building from abroad →
+            </Link>
+          </div>
         </div>
       </div>
     </section>
