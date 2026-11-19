@@ -45,34 +45,34 @@ export default function Footer() {
     <footer className="bg-[#0A0A0A] border-t border-white/5">
       <div className="container py-8">
         {/* Top row */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-8 mb-4 md:mb-6">
+        <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-5 md:gap-8 mb-6 md:mb-6">
           {/* Logo + brand */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center gap-4 sm:gap-3">
             <img
               src={LOGO_URL}
               alt="HuQuMa Studio"
               width={40}
               height={40}
               loading="lazy"
-              className="w-10 h-10 object-contain opacity-70"
+              className="w-14 h-14 sm:w-10 sm:h-10 object-contain opacity-70"
             />
             <div>
-              <div className="font-display text-base text-[#F5F0E8] leading-none">
+              <div className="font-display text-[1.75rem] sm:text-base text-[#F5F0E8] leading-none">
                 HuQuMa Studio
               </div>
-              <div className="text-[0.65rem] tracking-[0.25em] text-[#B8963E] uppercase font-mono-custom mt-0.5">
+              <div className="text-[0.65rem] tracking-[0.2em] sm:tracking-[0.25em] text-[#B8963E] uppercase font-mono-custom mt-1.5 sm:mt-0.5">
                 Design + Build + Manage
               </div>
             </div>
           </div>
 
           {/* Nav links */}
-          <nav aria-label="Footer" className="grid grid-cols-4 gap-x-2 sm:gap-x-8 md:gap-x-10">
+          <nav aria-label="Footer" className="grid grid-cols-[repeat(4,auto)] justify-center sm:grid-cols-4 sm:justify-normal gap-x-6 gap-y-3 sm:gap-y-0 sm:gap-x-8 md:gap-x-10">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleClick(link.href)}
-                className="tap py-3 text-left whitespace-nowrap text-[0.65rem] sm:text-xs text-[#7A7A7A] hover:text-[#B8963E] transition-colors tracking-normal sm:tracking-wide uppercase font-mono-custom"
+                className="tap py-3 text-center sm:text-left whitespace-nowrap text-[0.65rem] sm:text-xs text-[#7A7A7A] hover:text-[#B8963E] transition-colors tracking-normal sm:tracking-wide uppercase font-mono-custom"
               >
                 {link.label}
               </button>
@@ -84,11 +84,11 @@ export default function Footer() {
         <div className="h-px bg-white/5 mb-4" />
 
         {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-[#7A7A7A] text-xs font-mono-custom tracking-wide">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
+          <p className="text-[#7A7A7A] text-[0.65rem] sm:text-xs font-mono-custom tracking-normal sm:tracking-wide">
             © 2026 HuQuMa Studio [Design+Build]. All rights reserved.
           </p>
-          <p className="text-[#7A7A7A] text-xs font-mono-custom tracking-wide">
+          <p className="text-[#7A7A7A] text-[0.65rem] sm:text-xs font-mono-custom tracking-normal sm:tracking-wide">
             Designed & Made in Mexico with ♥ by{" "}
             <a
               href="https://www.loreto.com/hq/"
