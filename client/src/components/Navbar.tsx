@@ -121,12 +121,12 @@ export default function Navbar() {
                 height={40}
                 className="w-9 h-9 md:w-10 md:h-10 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
               />
-              <div className="hidden sm:block">
-                <div className="text-[#F5F0E8] font-display text-lg leading-none tracking-wide">
+              <div>
+                <div className="text-[#F5F0E8] font-display text-lg leading-none tracking-wide whitespace-nowrap">
                   HuQuMa Studio
                 </div>
-                <div className="text-[0.65rem] tracking-[0.2em] text-[#B8963E] uppercase font-mono-custom mt-0.5">
-                  Design + Build
+                <div className="text-[0.65rem] tracking-[0.12em] sm:tracking-[0.2em] text-[#B8963E] uppercase font-mono-custom mt-1 sm:mt-0.5 whitespace-nowrap">
+                  Design + Build + Manage
                 </div>
               </div>
             </a>
