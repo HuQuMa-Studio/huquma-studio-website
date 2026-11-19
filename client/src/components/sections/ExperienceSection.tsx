@@ -46,7 +46,7 @@ const timeline = [
     period: "2022 — Present",
     title: "HuQuMa Studio",
     description:
-      "Established HuQuMa Studio [Design+Build] as a full-service design and construction practice. Currently managing Casa Catalana and expanding services throughout Baja California Sur.",
+      "Established HuQuMa Studio [Design+Build] as a full-service design and construction practice. Recent projects include the completed Casa Catalana, and the studio now serves clients throughout Baja California Sur.",
   },
 ];
 
