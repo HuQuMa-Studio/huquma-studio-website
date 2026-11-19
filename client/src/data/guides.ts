@@ -402,7 +402,7 @@ export const GUIDES: Guide[] = [
               "Beachfront lots. Check whether the property has the ZOFEMAT concession next to it.",
               "Cleared rustic land. Find out whether the land was already cleared, and if so, whether it went through environmental impact review and land-use change. Clearing without the required permits can bring federal fines.",
               "Ejido land. Find out whether it has been properly released to become private property or is still restricted ejido land. This is a question for a lawyer.",
-              "Subdivided ejido lots. They are being offered in Loreto, but don't assume the municipality or the government will provide services. These subdivisions weren't done under the subdivision laws, so who will bring power, water, sewer and paving is unsettled. You can build on them, but you'll need permits without services, plus environmental impact review and a change from forest to urban land use.",
+              "Subdivided ejido lots. They are being offered in Loreto, but these are subdivisions among ejido members, not subdivisions of private property. They weren't set up under the subdivision laws, so don't assume they have all their permits or that they are meant to be urbanized, or that the municipality or the government will provide services. Who will bring power, water, sewer and paving is unsettled. You can build on them, but you'll need permits without services, plus environmental impact review and a change from forest to urban land use.",
               "FONATUR lots. They look urbanized, but in many the infrastructure has deteriorated and needs repair. Sometimes water and sewer connection fees are still owed. Read the purchase contract carefully, including the fine print on lots FONATUR has already sold to third parties. A low price doesn't mean no extra costs.",
               "Next to Loreto Bay. FONATUR used to review and pre-approve plans in the area around Loreto Bay. Ask the municipality which restrictions apply there now.",
               "Inside Loreto Bay. The design guidelines, density limits and condominium rules are far more restrictive than anywhere else. See the [guide to building and remodeling in Loreto Bay](/guides/building-and-remodeling-in-loreto-bay).",
@@ -424,7 +424,7 @@ export const GUIDES: Guide[] = [
           },
           {
             type: "p",
-            text: "I can help with some first steps, such as certificates of no debt and of no liens, and recommend registered real estate professionals and appraisers.",
+            text: "As a first step, I can handle the paperwork to obtain the certificates of no debt and of no liens. If you need something deeper, such as an appraisal or a more thorough negotiation with the owner, I can recommend registered appraisers and real estate agents.",
           },
         ],
       },
