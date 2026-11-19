@@ -71,7 +71,7 @@ const socialLinks = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="contact" className="relative py-14 sm:py-16 md:py-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img

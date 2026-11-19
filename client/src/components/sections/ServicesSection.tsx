@@ -82,9 +82,9 @@ export default function ServicesSection() {
   const [open, setOpen] = useState(DEFAULT_OPEN);
 
   return (
-    <section id="services" className="relative py-24 md:py-32 bg-[#0D0D0D] overflow-hidden">
+    <section id="services" className="relative py-14 sm:py-16 md:py-20 bg-[#0D0D0D] overflow-hidden">
       {/* Header */}
-      <div className="container mb-14 lg:mb-16 reveal">
+      <div className="container mb-10 lg:mb-12 reveal">
         <div className="section-number mb-3">03 — Services</div>
         <span className="gold-line" />
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">

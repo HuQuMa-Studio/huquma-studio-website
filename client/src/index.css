@@ -444,8 +444,8 @@
   }
   /* Estadística que es una palabra, no un número: más chica para que quepa en la celda */
   .stat-number--word {
-    font-size: clamp(1.75rem, 4.6vw, 3.25rem);
-    padding-top: 0.35em;
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    padding-top: 0.2em;
   }
 
   /* Timeline */

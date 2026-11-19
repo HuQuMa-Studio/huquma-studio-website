@@ -1,5 +1,6 @@
 import { AlertTriangle, RotateCcw } from "lucide-react";
 import { Component, ReactNode } from "react";
+import { EMAIL } from "@/lib/contact";
 
 interface Props {
   children: ReactNode;
@@ -23,27 +24,28 @@ class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex items-center justify-center min-h-screen p-8 bg-background">
-          <div className="flex flex-col items-center w-full max-w-2xl p-8">
-            <AlertTriangle
-              size={48}
-              className="text-destructive mb-6 flex-shrink-0"
-            />
+        <div className="flex items-center justify-center min-h-screen px-6 py-16 bg-[#111111]">
+          <div className="flex flex-col items-center w-full max-w-md text-center">
+            <AlertTriangle size={40} className="text-[#B8963E] mb-6 flex-shrink-0" />
 
-            <h2 className="text-xl mb-4">An unexpected error occurred.</h2>
-
-            <div className="p-4 w-full rounded bg-muted overflow-auto mb-6">
-              <pre className="text-sm text-muted-foreground whitespace-break-spaces">
-                {this.state.error?.stack}
-              </pre>
-            </div>
+            <h2 className="font-display text-3xl text-[#F5F0E8] mb-3">
+              This page didn't load
+            </h2>
+            <p className="text-[#C8C8C8] text-base leading-relaxed mb-8">
+              Something went wrong on my end. Reloading usually fixes it. If it
+              doesn't, email me at{" "}
+              <a href={`mailto:${EMAIL}`} className="text-[#D4AF5A] underline underline-offset-4">
+                {EMAIL}
+              </a>{" "}
+              and I'll help.
+            </p>
 
             <button
               onClick={() => window.location.reload()}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 cursor-pointer"
+              className="btn-gold inline-flex items-center gap-2"
             >
               <RotateCcw size={16} />
-              Reload Page
+              Reload the page
             </button>
           </div>
         </div>

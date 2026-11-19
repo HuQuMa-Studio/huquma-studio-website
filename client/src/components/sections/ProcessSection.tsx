@@ -39,10 +39,10 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="relative py-24 md:py-32 bg-[#0D0D0D]">
+    <section id="process" className="relative py-14 sm:py-16 md:py-20 bg-[#0D0D0D]">
       <div className="container">
         {/* Header */}
-        <div className="mb-16 reveal">
+        <div className="mb-10 md:mb-12 reveal">
           <div className="section-number mb-3">01 — Building from abroad</div>
           <span className="gold-line" />
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
