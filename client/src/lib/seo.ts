@@ -175,7 +175,7 @@ export function projectJsonLd(site: string, p: Project) {
 
 export const GUIDES_TITLE = "Guides to building a home in Loreto, BCS | HuQuMa Studio";
 export const GUIDES_DESCRIPTION =
-  "Plain answers about building a custom home in Loreto, Baja California Sur: permits, the DRO, owning land near the coast and building while you live abroad.";
+  "Plain answers on buying land and building a custom home in Loreto, Baja California Sur: permits, the DRO, Loreto Bay, ejido land and building from abroad.";
 
 export function guideTitle(g: Pick<Guide, "title">): string {
   return `${g.title} | HuQuMa Studio`;
