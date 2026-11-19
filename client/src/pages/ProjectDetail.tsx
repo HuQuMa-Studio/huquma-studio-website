@@ -98,8 +98,8 @@ export default function ProjectDetail() {
               Project not found
             </h1>
             <p className="text-[#828282] text-sm mb-8 max-w-md mx-auto">
-              The project "{slug}" doesn't exist in our portfolio. It may have
-              been renamed or removed.
+              The project "{slug}" isn't in my portfolio. It may have been
+              renamed or removed.
             </p>
             <button onClick={goToPortfolio} className="btn-gold inline-flex">
               ← Back to Portfolio

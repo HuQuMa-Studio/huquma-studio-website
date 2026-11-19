@@ -15,16 +15,16 @@ const steps = [
     stage: "Design",
     title: "Plans and permits",
     body: [
-      "I draw the plans, elevations and structural drawings, then take them through the permit process with the municipality myself.",
-      "As a licensed DRO (Director Responsable de Obra) I also sign the project, so you don't hire a separate director of works.",
+      "I design and engineer the full drawing set (architectural, structural, electrical, plumbing and HVAC) and manage the permits.",
+      "As DRO, I review, sign and stamp the plans, check the site, log progress, enforce codes and sign off on completion, assuming all liabilities.",
     ],
   },
   {
     stage: "Build",
     title: "Construction you can follow",
     body: [
-      "You get photos and video on WhatsApp as the work moves, email reports with what was spent against the budget, and video calls at the key milestones.",
-      "I also capture the house as a 3D digital twin with Matterport, so you can walk through it from your screen.",
+      "Design-build gives you a single point of contact, so you never play middleman between architects, contractors and subcontractors. The result is clear costs, better communication and a shorter timeline.",
+      "You follow it from home: photos and video on WhatsApp, email reports of spend against budget, video calls at key milestones, and a 3D Matterport walkthrough of the house.",
     ],
   },
   {
@@ -39,10 +39,10 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="relative py-24 md:py-32 bg-[#0D0D0D]">
+    <section id="process" className="relative py-14 sm:py-16 md:py-20 bg-[#0D0D0D]">
       <div className="container">
         {/* Header */}
-        <div className="mb-16 reveal">
+        <div className="mb-10 md:mb-12 reveal">
           <div className="section-number mb-3">01 — Building from abroad</div>
           <span className="gold-line" />
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
@@ -89,9 +89,14 @@ export default function ProcessSection() {
             {PRIMARY_CTA_LABEL}
           </a>
           <WhatsAppTextLink />
-          <Link href="/guides/building-a-home-in-loreto-from-abroad" className="tap text-sm text-[#D4AF5A] underline-offset-4 hover:underline sm:ml-auto">
-            Read the full guide to building from abroad →
-          </Link>
+          <div className="flex flex-wrap gap-x-6 gap-y-1 sm:ml-auto">
+            <Link href="/guides/design-build-process-in-loreto" className="tap text-sm text-[#D4AF5A] underline-offset-4 hover:underline">
+              How design-build works →
+            </Link>
+            <Link href="/guides/building-a-home-in-loreto-from-abroad" className="tap text-sm text-[#D4AF5A] underline-offset-4 hover:underline">
+              Guide to building from abroad →
+            </Link>
+          </div>
         </div>
       </div>
     </section>

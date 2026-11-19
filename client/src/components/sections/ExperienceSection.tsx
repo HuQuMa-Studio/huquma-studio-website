@@ -10,11 +10,11 @@ import { useEffect, useRef, useState } from "react";
 
 const LORETO_BG = "/images/experience-bg.webp";
 
-const stats = [
+const stats: { value: number; suffix: string; label: string; text?: string }[] = [
   { value: 30, suffix: "+", label: "Years of Experience" },
-  { value: 100, suffix: "+", label: "Projects Completed" },
+  { value: 0, suffix: "", text: "References", label: "& Testimonials on Request" },
   { value: 1993, suffix: "", label: "In Practice Since" },
-  { value: 1, suffix: "", label: "Loreto, BCS" },
+  { value: 1, suffix: "", label: "Baja California Sur" },
 ];
 
 const timeline = [
@@ -46,11 +46,11 @@ const timeline = [
     period: "2022 — Present",
     title: "HuQuMa Studio",
     description:
-      "Established HuQuMa Studio [Design+Build] as a full-service design and construction practice. Currently managing Casa Catalana and expanding services throughout Baja California Sur.",
+      "Established HuQuMa Studio [Design+Build] as a full-service design and construction practice. Recent projects include the completed Casa Catalana, and the studio now serves clients throughout Baja California Sur.",
   },
 ];
 
-function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
+function AnimatedCounter({ target, suffix, text }: { target: number; suffix: string; text?: string }) {
   // Arranca en el valor final para que el HTML pre-renderizado (lo que leen
   // buscadores y agentes sin JS) diga el número real; en el navegador se
   // reinicia a 0 al montar y cuenta al entrar en pantalla.
@@ -85,9 +85,17 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
     return () => observer.disconnect();
   }, [target]);
 
+  if (text) {
+    return (
+      <div ref={ref} className="stat-number stat-number--word">
+        {text}
+      </div>
+    );
+  }
+
   if (target === 1) {
     return (
-      <div ref={ref} className="stat-number">
+      <div ref={ref} className="stat-number stat-number--word">
         Loreto
       </div>
     );
@@ -103,10 +111,10 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 md:py-32 bg-[#111111]">
+    <section id="experience" className="py-14 sm:py-16 md:py-20 bg-[#111111]">
       <div className="container">
         {/* Header */}
-        <div className="mb-16 reveal">
+        <div className="mb-10 md:mb-12 reveal">
           <div className="section-number mb-3">04 — Experience</div>
           <span className="gold-line" />
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5F0E8] leading-tight">
@@ -116,7 +124,7 @@ export default function ExperienceSection() {
         </div>
 
         {/* Stats + Loreto image */}
-        <div className="relative mb-20 overflow-hidden reveal">
+        <div className="relative mb-12 md:mb-14 overflow-hidden reveal">
           <div className="absolute inset-0 z-0">
             <img
               src={LORETO_BG}
@@ -131,8 +139,8 @@ export default function ExperienceSection() {
 
           <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/8">
             {stats.map((stat) => (
-              <div key={stat.label} className="p-8 md:p-12 text-center">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+              <div key={stat.label} className="px-3 py-8 md:px-4 md:py-12 text-center">
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} text={stat.text} />
                 <div className="text-[#828282] text-xs tracking-widest uppercase mt-2 font-mono-custom">
                   {stat.label}
                 </div>

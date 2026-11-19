@@ -12,7 +12,7 @@ import { PRIMARY_CTA_LABEL, emailHref } from "@/lib/contact";
 
 export default function FaqSection() {
   return (
-    <section id="faq" className="relative py-24 md:py-32 bg-[#0D0D0D]">
+    <section id="faq" className="relative py-14 sm:py-16 md:py-20 bg-[#0D0D0D]">
       <div className="container grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] gap-12 lg:gap-20">
         {/* Header */}
         <div className="reveal lg:sticky lg:top-32 lg:self-start">

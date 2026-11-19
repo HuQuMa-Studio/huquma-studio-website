@@ -32,7 +32,7 @@ export default function PortfolioSection() {
       : projects.filter((p) => p.type === activeTab);
 
   return (
-    <section id="portfolio" className="py-24 md:py-32 bg-[#0D0D0D]">
+    <section id="portfolio" className="py-14 sm:py-16 md:py-20 bg-[#0D0D0D]">
       <div className="container">
         {/* Header */}
         <div className="mb-12 reveal">

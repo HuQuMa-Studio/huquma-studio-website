@@ -3,20 +3,13 @@
    Design: Dos columnas — texto izquierda, retrato derecha
    - Texto de presentación con nombre en negrita
    - Retrato B&W de Hugo
-   - Badges de credenciales
    ============================================================= */
 
 const PORTRAIT_URL = "/images/hugo-portrait.webp";
 
-const credentials = [
-  { label: "DRO", desc: "Director Responsable de Obra" },
-  { label: "30+", desc: "Years of experience" },
-  { label: "BCS", desc: "Baja California Sur" },
-];
-
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-[#111111]">
+    <section id="about" className="py-14 sm:py-16 md:py-20 bg-[#111111]">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Text column */}
@@ -71,23 +64,6 @@ export default function AboutSection() {
                 building practices, and I proudly serve clients throughout{" "}
                 <strong className="text-[#F5F0E8]">Baja California Sur</strong>.
               </p>
-            </div>
-
-            {/* Credential badges */}
-            <div className="flex flex-wrap gap-3 mt-10">
-              {credentials.map((c) => (
-                <div
-                  key={c.label}
-                  className="flex items-center gap-3 px-4 py-2.5 border border-white/8 bg-[#1A1A1A]"
-                >
-                  <span className="font-display text-xl text-[#B8963E] font-semibold leading-none">
-                    {c.label}
-                  </span>
-                  <span className="text-xs text-[#828282] tracking-wide leading-tight">
-                    {c.desc}
-                  </span>
-                </div>
-              ))}
             </div>
           </div>
 
