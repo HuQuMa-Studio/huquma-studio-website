@@ -40,8 +40,7 @@ const services: Service[] = [
     stage: "Build",
     name: "Construction",
     ask: "Email me about a build",
-    body: "New custom homes, remodels and additions, from the foundation to the finishes.",
-    types: ["Custom homes", "Remodels & additions", "Pools", "Tiny houses", "Energy-efficient building"],
+    body: "New custom homes, remodels and additions, pools and tiny houses, including energy-efficient building. I run the job from the foundation to the finishes.",
     image: `${BLOB}/casa-danzante/1_foundation_casa_danzante.webp`,
     alt: "Crew pouring the foundation slab of Casa Danzante",
     caption: "Casa Danzante · foundation",
@@ -133,7 +132,7 @@ export default function ServicesSection() {
                   className="service-photo absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="service-shade absolute inset-0" />
-                <div className="service-caption absolute right-5 top-4 lg:right-7 lg:top-5 font-mono-custom text-[0.65rem] tracking-[0.2em] uppercase text-[#F5F0E8]/75">
+                <div className="service-caption absolute right-5 top-4 lg:right-7 lg:top-5 bg-[#111111]/75 px-2.5 py-1.5 font-mono-custom text-[0.65rem] tracking-[0.2em] uppercase text-[#F5F0E8]">
                   {service.caption}
                 </div>
               </div>
@@ -167,16 +166,6 @@ export default function ServicesSection() {
                 <p className="text-[#C8C8C8] lg:text-[#D8D2C6] text-base leading-relaxed max-w-[34rem]">
                   {service.body}
                 </p>
-                {service.types && (
-                  <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono-custom text-[0.65rem] tracking-[0.14em] uppercase text-[#C8C8C8]">
-                    {service.types.map((type, t) => (
-                      <li key={type} className="flex items-center gap-3">
-                        {t > 0 && <span aria-hidden="true" className="text-[#B8963E]">·</span>}
-                        {type}
-                      </li>
-                    ))}
-                  </ul>
-                )}
                 <a
                   href={emailHref(service.name)}
                   className="tap inline-block mt-5 text-sm text-[#D4AF5A] underline-offset-4 hover:underline focus-visible:underline"

@@ -7,15 +7,16 @@ import { useLocation } from "wouter";
 
 const LOGO_URL = "/images/logo-192.webp";
 
+// Orden de lectura en 2 filas x 4 columnas (grid de 4 columnas, fila por fila)
 const navLinks = [
   { label: "How I Work", href: "#process" },
-  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Guides", href: "/guides" },
+  { label: "FAQ", href: "#faq" },
   { label: "Experience", href: "#experience" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Guides", href: "/guides" },
   { label: "Contact", href: "#contact" },
+  { label: "About", href: "#about" },
 ];
 
 export default function Footer() {
@@ -66,12 +67,12 @@ export default function Footer() {
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-wrap gap-x-6">
+          <nav aria-label="Footer" className="grid grid-cols-4 gap-x-2 sm:gap-x-8 md:gap-x-10">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleClick(link.href)}
-                className="tap py-3 text-xs text-[#7A7A7A] hover:text-[#B8963E] transition-colors tracking-wide uppercase font-mono-custom"
+                className="tap py-3 text-left text-[0.65rem] sm:text-xs text-[#7A7A7A] hover:text-[#B8963E] transition-colors tracking-normal sm:tracking-wide uppercase font-mono-custom"
               >
                 {link.label}
               </button>

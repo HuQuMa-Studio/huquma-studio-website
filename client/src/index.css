@@ -295,6 +295,27 @@
     animation: stage-fade 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  /* Barra de progreso de la etapa activa del fondo (portada, tablet/teléfono) */
+  .hero-progress {
+    transform-origin: left;
+    animation: hero-progress 4.5s linear both;
+  }
+
+  @keyframes hero-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-progress {
+      animation: none;
+    }
+  }
+
   @keyframes stage-fade {
     from {
       opacity: 0;
