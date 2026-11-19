@@ -496,7 +496,7 @@ export const GUIDES: Guide[] = [
     slug: "design-build-process-in-loreto",
     title: "The design-build process: one contract for your design and your build",
     description:
-      "How design-build works for a custom home in Loreto, BCS: one contract, a budget before work starts, how a cost-plus contract runs, and how it compares with the traditional way.",
+      "How design-build works for a custom home in Loreto, BCS: one contract, a budget before work starts, fixed price or cost-plus, and how it compares with the traditional way.",
     dek: "Design-build means the person who designs your house is the person who builds it. Here is how that works step by step, and why I think it gives you a smoother project and more value for your budget.",
     published: "2026-11-18",
     updated: "2026-11-19",
@@ -559,11 +559,20 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        heading: "Fixed price or cost-plus",
+        blocks: [
+          {
+            type: "p",
+            text: "I offer two ways to price a design-build project. With a fixed price (precio alzado), we agree on the total for a defined scope before construction starts, which is a good fit for simpler projects and for any project where the scope is settled. With a cost-plus contract (costo reembolsable), you pay the real costs plus an agreed fee, which suits high-end homes whose design keeps evolving. Either can be used on any project, and we choose together.",
+          },
+        ],
+      },
+      {
         heading: "Cost-plus contracts for high-end homes",
         blocks: [
           {
             type: "p",
-            text: "For high-end custom homes, where the design keeps evolving as the house takes shape, I use a cost-plus design-build contract (costo reembolsable). Instead of fixing one final price on day one, you pay the real, eligible costs of the work plus an agreed fee for the builder. The final cost can therefore differ from the first projection, and the contract is built around keeping that visible and under your control.",
+            text: "For high-end custom homes, where the design keeps evolving as the house takes shape, I often use a cost-plus design-build contract (costo reembolsable). Instead of fixing one final price on day one, you pay the real, eligible costs of the work plus an agreed fee for the builder. The final cost can therefore differ from the first projection, and the contract is built around keeping that visible and under your control.",
           },
           {
             type: "ol",
@@ -616,7 +625,7 @@ export const GUIDES: Guide[] = [
             items: [
               "Contract: one for design and construction, against separate ones for the architect and each contractor.",
               "Who you talk to: one person, against everyone separately.",
-              "Budget: projected up front with the design and tracked in reports, against a design that may need to be redone to fit the cost.",
+              "Budget: a fixed price or a cost-plus projection set up front with the design, against a design that may need to be redone to fit the cost.",
               "Timeline: overlapping stages, against one stage waiting for the next.",
             ],
           },
