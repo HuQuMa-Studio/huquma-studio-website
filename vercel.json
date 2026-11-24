@@ -5,12 +5,19 @@
       "has": [{ "type": "host", "value": "huquma-studio-website.vercel.app" }],
       "destination": "https://huquma.studio/:path",
       "permanent": true
+    },
+    {
+      "source": "/walkthrough/casa-catalana",
+      "destination": "/walkthrough/casa-catalana/",
+      "permanent": true
     }
   ],
   "rewrites": [
     { "source": "/robots.txt", "destination": "/api/robots" },
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
     { "source": "/llms.txt", "destination": "/api/llms" },
+    { "source": "/walkthrough/casa-catalana/", "destination": "https://casa-catalana-walkthrough.vercel.app/" },
+    { "source": "/walkthrough/casa-catalana/:path*", "destination": "https://casa-catalana-walkthrough.vercel.app/:path*" },
     { "source": "/portfolio/:slug", "destination": "/index.html" }
   ],
   "images": {

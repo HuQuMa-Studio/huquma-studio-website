@@ -24,6 +24,7 @@ export interface Project {
   planImage: string; // Foto Plano URL — lámina 01 de la portada (opcional)
   buildImage: string; // Foto Obra URL — lámina 02 de la portada
   featured: boolean; // Mostrar en Portada
+  walkthroughUrl: string; // Walkthrough URL — ruta del recorrido 3D, p. ej. /walkthrough/casa-catalana/ (opcional)
 }
 
 // Categorías de "Tipo" en Notion, en el orden de las pestañas del portafolio.

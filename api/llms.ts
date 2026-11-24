@@ -21,7 +21,7 @@ const WAYS_TO_HIRE = "Design + Build, Design only, Build only, Oversight, or Man
 
 const REMOTE_PROCESS = [
   "Progress photos and video on WhatsApp, email reports with spending against the budget, and video calls at key milestones",
-  "A 3D digital twin of the house (Matterport) to walk through remotely",
+  "A 3D digital twin of the house (Matterport) to walk through remotely, and interactive 3D walkthroughs built from the architectural plans before construction starts",
   "One accountable person on site in Loreto for plans, permits, budget and the house itself",
 ];
 
@@ -37,7 +37,8 @@ export default async function handler(
     portfolio = (await fetchProjects()).map((p) => {
       const meta = [p.type, p.year, p.location].filter(Boolean).join(" · ");
       const desc = p.description ? `: ${p.description}` : "";
-      return `- [${p.name}](${base}/portfolio/${encodeURIComponent(p.slug)}) (${meta})${desc}`;
+      const tour = p.walkthroughUrl ? ` — [3D walkthrough](${base}${p.walkthroughUrl})` : "";
+      return `- [${p.name}](${base}/portfolio/${encodeURIComponent(p.slug)}) (${meta})${desc}${tour}`;
     });
   } catch {
     // Sin Notion: se omite la lista de proyectos
