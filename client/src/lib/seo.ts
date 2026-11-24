@@ -158,6 +158,7 @@ export function projectJsonLd(site: string, p: Project) {
           address: { "@type": "PostalAddress", addressLocality: p.location, addressRegion: "Baja California Sur", addressCountry: "MX" },
         },
         creator: { "@id": businessId(site) },
+        ...(p.walkthroughUrl ? { hasPart: { "@id": `${site}${p.walkthroughUrl}#walkthrough` } } : {}),
       },
       {
         "@type": "BreadcrumbList",

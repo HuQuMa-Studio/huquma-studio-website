@@ -13,8 +13,12 @@ export default async function handler(
   const base = `https://${host}`;
 
   let slugs: string[] = [];
+  let walkthroughs: string[] = [];
   try {
-    slugs = (await fetchProjects()).map((p) => p.slug);
+    const projects = await fetchProjects();
+    slugs = projects.map((p) => p.slug);
+    // Solo proyectos publicados (fetchProjects ya filtra "Mostrar en Web")
+    walkthroughs = projects.map((p) => p.walkthroughUrl).filter(Boolean);
   } catch {
     // Sin Notion: al menos la portada
   }
@@ -22,6 +26,7 @@ export default async function handler(
   const urls = [
     "/",
     ...slugs.map((s) => `/portfolio/${encodeURIComponent(s)}`),
+    ...walkthroughs,
     "/guides",
     ...GUIDES.map((g) => `/guides/${g.slug}`),
   ];
