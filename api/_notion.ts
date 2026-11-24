@@ -56,6 +56,15 @@ function parseGallery(text: string): string[] {
     .filter((line) => /^https?:\/\//.test(line));
 }
 
+// "Walkthrough URL": ruta relativa del recorrido 3D (p. ej. /walkthrough/casa-catalana/).
+// Solo se acepta una ruta interna que empiece con una sola "/" (nunca "//" ni URLs
+// externas) y se garantiza la barra final, que necesitan las rutas relativas del recorrido.
+function parseWalkthroughUrl(text: string): string {
+  const t = text.trim();
+  if (!/^\/(?!\/)[A-Za-z0-9\-._~/]*$/.test(t)) return "";
+  return t.endsWith("/") ? t : `${t}/`;
+}
+
 export type PortfolioProject = ReturnType<typeof mapPage>;
 
 function mapPage(page: NotionPage) {
@@ -84,6 +93,8 @@ function mapPage(page: NotionPage) {
     planImage: p["Foto Plano URL"]?.url ?? "",
     buildImage: p["Foto Obra URL"]?.url ?? "",
     featured: p["Mostrar en Portada"]?.checkbox ?? false,
+    // Recorrido 3D interactivo (opcional)
+    walkthroughUrl: parseWalkthroughUrl(plainText(p["Walkthrough URL"]?.rich_text)),
   };
 }
 

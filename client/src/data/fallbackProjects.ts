@@ -35,6 +35,7 @@ export const FALLBACK_PROJECTS: Project[] = [
     planImage: "",
     buildImage: "https://phqqmyu6mg1hod6o.public.blob.vercel-storage.com/portfolio/gallery/casa-riquelme/casa_riquelme_framing.webp",
     featured: true,
+    walkthroughUrl: "",
   },
   {
     id: "casa-catalana",
@@ -56,6 +57,7 @@ export const FALLBACK_PROJECTS: Project[] = [
     planImage: "",
     buildImage: "",
     featured: false,
+    walkthroughUrl: "",
   },
   {
     id: "casa-caballo-mar",
@@ -77,6 +79,7 @@ export const FALLBACK_PROJECTS: Project[] = [
     planImage: "",
     buildImage: "",
     featured: false,
+    walkthroughUrl: "",
   },
   {
     id: "villa-cortez",
@@ -98,5 +101,6 @@ export const FALLBACK_PROJECTS: Project[] = [
     planImage: "",
     buildImage: "",
     featured: false,
+    walkthroughUrl: "",
   },
 ];

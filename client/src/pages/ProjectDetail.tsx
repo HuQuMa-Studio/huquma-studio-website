@@ -246,6 +246,17 @@ export default function ProjectDetail() {
           </div>
         </section>
 
+        {/* 3D walkthrough: <a> nativo (no wouter) para que el navegador pida la página y dispare el rewrite de vercel.json */}
+        {project.walkthroughUrl && (
+          <section className="pb-12 md:pb-16">
+            <div className="container">
+              <a href={project.walkthroughUrl} className="btn-gold inline-flex">
+                Explore 3D Walkthrough →
+              </a>
+            </div>
+          </section>
+        )}
+
         {/* Gallery */}
         <section className="pb-16 md:pb-24">
           <div className="container">
